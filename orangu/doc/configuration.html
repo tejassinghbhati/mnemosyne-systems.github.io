@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="quickstart.html">Quick Start</a></li>
+        <li><a href="configuration.html" class="active">Configuration</a>
+          <ul>
+            <li><a href="#wizard">Interactive setup</a></li>
+            <li><a href="#orangu-section">[orangu] section</a></li>
+            <li><a href="#server-sections">Server sections</a></li>
+            <li><a href="#sample">Sample file</a></li>
+          </ul>
+        </li>
+        <li><a href="terminal.html">Terminal Interface</a></li>
+        <li><a href="core-tools.html">Core Tools</a></li>
+        <li><a href="git-tools.html">Git Tools</a></li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+
+    <h1>Configuration</h1>
+
+    <p><code>orangu</code> uses an INI-style configuration file.</p>
+
+    <h2 id="wizard">Interactive setup (--init)<a class="anchor" href="#wizard">#</a></h2>
+
+    <p>Run <code>orangu --init</code> (short form <code>-i</code>) to generate the configuration interactively:</p>
+
+    <pre><code>orangu --init</code></pre>
+
+    <p>The wizard:</p>
+
+    <ol>
+      <li>Asks for the <strong>LLM URL</strong> (the server <code>endpoint</code>).</li>
+      <li>Queries the server's <code>/v1/models</code> endpoint and pre-fills the first advertised model as the <strong>Model</strong> value; if no model is detected you enter one manually.</li>
+      <li>Walks every <code>[orangu]</code> and server option, showing its default in <code>[brackets]</code>. Press Enter to keep the default. Boolean options accept <code>Yes</code>/<code>Y</code>/<code>No</code>/<code>N</code> (case-insensitive).</li>
+      <li>Reports which optional external tools it detects: <code>git lg</code>, <code>delta</code>, <code>bat</code>, <code>gh</code>, and <code>glab</code>.</li>
+      <li>Shows the resulting configuration and asks for confirmation before writing to <code>~/.orangu/orangu.conf</code>.</li>
+    </ol>
+
+    <p>Only values that differ from their default are written, so the generated file stays minimal.</p>
+
+    <h2 id="orangu-section">[orangu] section<a class="anchor" href="#orangu-section">#</a></h2>
+
+    <p>The main section selects the default server and sets client-wide limits:</p>
+
+    <pre><code>[orangu]
+server = main-server
+model = ggml-org/gemma-4-E4B-it-GGUF
+timeout = 1800
+max_tool_rounds = 10</code></pre>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>server</code></td>
+          <td>Yes, if multiple servers</td>
+          <td>Name of the default server section</td>
+        </tr>
+        <tr>
+          <td><code>model</code></td>
+          <td>No</td>
+          <td>General default model name. Overridden by the selected server's own <code>model</code> when set</td>
+        </tr>
+        <tr>
+          <td><code>timeout</code></td>
+          <td>No</td>
+          <td>Request timeout in seconds. Default: <code>1800</code></td>
+        </tr>
+        <tr>
+          <td><code>max_tool_rounds</code></td>
+          <td>No</td>
+          <td>Maximum tool-calling turns before the client aborts the prompt</td>
+        </tr>
+        <tr>
+          <td><code>quotes</code></td>
+          <td>No</td>
+          <td>Quote set shown while the model is thinking. Default: <code>none</code>. Options: <code>none</code>, <code>star_trek</code>, <code>star_wars</code>, <code>marco_pierre_white</code>, <code>gordon_ramsay</code>, <code>calvin_and_hobbes</code>, <code>sun_tzu_english</code>, <code>attila_the_hun</code>, <code>all</code></td>
+        </tr>
+        <tr>
+          <td><code>width</code></td>
+          <td>No</td>
+          <td>Virtual terminal width in characters. Controls canvas width for <code>/show_file</code> output. Default: <code>512</code></td>
+        </tr>
+        <tr>
+          <td><code>banner</code></td>
+          <td>No</td>
+          <td>Horizontal placement of the header banner. Default: <code>left</code>. Options: <code>left</code>, <code>center</code>, <code>right</code></td>
+        </tr>
+        <tr>
+          <td><code>feedback</code></td>
+          <td>No</td>
+          <td>Show a green or red dot after each command. Default: <code>off</code>. Options: <code>on</code> / <code>off</code></td>
+        </tr>
+        <tr>
+          <td><code>auto_rebase</code></td>
+          <td>No</td>
+          <td>Automatically rebase before <code>/pull_request</code> if the branch is behind the base. Default: <code>off</code></td>
+        </tr>
+        <tr>
+          <td><code>auto_squash</code></td>
+          <td>No</td>
+          <td>Automatically squash commits before <code>/pull_request</code> if more than one commit is ahead of the base. Default: <code>off</code></td>
+        </tr>
+        <tr>
+          <td><code>terminal</code></td>
+          <td>No</td>
+          <td>Launch command used to open <code>$EDITOR</code> in a new window for <code>/open_file</code>. Example: <code>xterm -e</code> or <code>kitty</code>. Auto-detected when unset</td>
+        </tr>
+        <tr>
+          <td><code>platform</code></td>
+          <td>No</td>
+          <td>Code-hosting platform for <code>/pull</code>, <code>/pull_request</code>, <code>/merge</code>, and <code>/comment</code>. Default: <code>github</code>. Options: <code>github</code>, <code>gitlab</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="server-sections">Server sections<a class="anchor" href="#server-sections">#</a></h2>
+
+    <p>Each server is a named INI section. The section name is what <code>[orangu].server</code> points to:</p>
+
+    <pre><code>[main-server]
+provider = llama.cpp
+endpoint = http://localhost:8100/v1
+model = ggml-org/gemma-4-E4B-it-GGUF</code></pre>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>provider</code></td>
+          <td>Yes</td>
+          <td><code>llama.cpp</code> or <code>openai</code></td>
+        </tr>
+        <tr>
+          <td><code>endpoint</code></td>
+          <td>Yes</td>
+          <td>OpenAI-compatible API URL. May be set with or without the <code>/v1</code> path</td>
+        </tr>
+        <tr>
+          <td><code>model</code></td>
+          <td>No</td>
+          <td>Model identifier. Overrides <code>[orangu].model</code> when set</td>
+        </tr>
+        <tr>
+          <td><code>api_key</code></td>
+          <td>No</td>
+          <td>API key sent as <code>Authorization: Bearer &lt;key&gt;</code>. Required when the server runs with <code>--api-key</code> or for authenticated endpoints</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      At least one of <code>[orangu].model</code> or a server's own <code>model</code> must be set. Each server section must use a unique endpoint; <code>http://x</code> and <code>http://x/v1</code> are treated as the same host.
+    </div>
+
+    <ul>
+      <li>Use <code>/server</code> to switch between configured servers at runtime; Tab completion lists every server section</li>
+      <li>Set <code>feedback = on</code> to show a green or red dot after each command</li>
+    </ul>
+
+    <h2 id="sample">Sample file<a class="anchor" href="#sample">#</a></h2>
+
+    <p>The distributed sample lives at:</p>
+
+    <pre><code>doc/etc/orangu.conf</code></pre>
+
+    <p>It ships with llama.cpp-style servers and a 30-minute timeout suitable for local tool-calling workloads. Copy and adjust to get started quickly.</p>
+
+    <div class="doc-footer-nav">
+      <a href="quickstart.html" class="prev">Quick Start</a>
+      <a href="terminal.html" class="next">Terminal Interface</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

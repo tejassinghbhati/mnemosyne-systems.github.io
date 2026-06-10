@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Tools — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="quickstart.html">Quick Start</a></li>
+        <li><a href="configuration.html">Configuration</a></li>
+        <li><a href="terminal.html">Terminal Interface</a></li>
+        <li><a href="core-tools.html">Core Tools</a></li>
+        <li><a href="git-tools.html" class="active">Git Tools</a>
+          <ul>
+            <li><a href="#status">/status</a></li>
+            <li><a href="#log">/log</a></li>
+            <li><a href="#diff">/diff</a></li>
+            <li><a href="#grep">/grep</a></li>
+            <li><a href="#add_file">/add_file</a></li>
+            <li><a href="#remove_file">/remove_file</a></li>
+            <li><a href="#move_file">/move_file</a></li>
+            <li><a href="#restore">/restore</a></li>
+            <li><a href="#commit">/commit</a></li>
+            <li><a href="#amend">/amend</a></li>
+            <li><a href="#squash">/squash</a></li>
+            <li><a href="#stash">/stash</a></li>
+            <li><a href="#branch">/branch</a></li>
+            <li><a href="#merge">/merge</a></li>
+            <li><a href="#rebase">/rebase</a></li>
+            <li><a href="#cherry_pick">/cherry_pick</a></li>
+            <li><a href="#push">/push</a></li>
+            <li><a href="#pull">/pull</a></li>
+            <li><a href="#pull_request">/pull_request</a></li>
+            <li><a href="#comment">/comment</a></li>
+            <li><a href="#close">/close</a></li>
+          </ul>
+        </li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+
+    <h1>Git Tools</h1>
+
+    <p>The Git tools wrap common Git, GitHub, and GitLab operations as local slash commands. They all require a Git repository in the workspace and, unless noted, run plain Git under the hood. A few commands integrate with the <code>gh</code> (GitHub) or <code>glab</code> (GitLab) CLI when installed.</p>
+
+    <p>Several commands surface a combined hint when the current branch is behind its base or carries more than one commit: <em>branch is N commits behind base; run /rebase</em> and/or <em>N commits ahead of base; run /squash</em>. The base branch is detected in the order <code>origin/main</code>, <code>origin/master</code>, <code>main</code>, then <code>master</code>.</p>
+
+    <p>Every command below also accepts the natural-language aliases listed in its <strong>Examples</strong>.</p>
+
+    <!-- /status -->
+    <h2 id="status">/status<a class="anchor" href="#status">#</a></h2>
+    <p>Shows the working-tree status with color highlighting. Runs <code>git status --branch --short</code>. Added and untracked entries are shown in green, deleted in red, modified in the default color; the branch line is muted.</p>
+    <h3>Examples</h3>
+    <pre><code>/status</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>status
+show status
+git status</code></pre>
+
+    <!-- /log -->
+    <h2 id="log">/log<a class="anchor" href="#log">#</a></h2>
+    <p>Shows the commit log. Uses <code>git lg</code> if a <code>lg</code> alias is found in <code>~/.gitconfig</code>, otherwise falls back to <code>git log --graph --oneline --decorate</code>. An optional number limits output to the most recent N commits. Below the log it appends a working-tree summary: <code>● Working tree clean</code> or <code>● N change(s)</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/log
+/log 5</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>log
+show log
+git log
+git lg</code></pre>
+
+    <!-- /diff -->
+    <h2 id="diff">/diff<a class="anchor" href="#diff">#</a></h2>
+    <p>Shows a color unified diff. Without a branch it shows unstaged changes; with a branch it runs <code>git diff &lt;branch&gt;...HEAD</code>. Applies any configured non-interactive Git pager such as <code>delta</code>. Tab completion offers local and remote branch names.</p>
+    <h3>Examples</h3>
+    <pre><code>/diff
+/diff main</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>diff
+show diff
+git diff
+diff against main
+show diff against main</code></pre>
+
+    <!-- /grep -->
+    <h2 id="grep">/grep<a class="anchor" href="#grep">#</a></h2>
+    <p>Searches all tracked files for a pattern with <code>git grep</code>. Output is piped through the configured pager when one is set. Exit code 1 (no matches) is handled gracefully.</p>
+    <h3>Examples</h3>
+    <pre><code>/grep TODO
+/grep "fn main"</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>grep TODO
+find TODO
+git grep TODO</code></pre>
+
+    <!-- /add_file -->
+    <h2 id="add_file">/add_file<a class="anchor" href="#add_file">#</a></h2>
+    <p>Stages a file or directory with <code>git add</code>. Tab completion offers untracked directories first, then untracked files; already-tracked content is excluded.</p>
+    <h3>Examples</h3>
+    <pre><code>/add_file README.md
+/add_file src/</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>add README.md
+add file src/
+git add README.md</code></pre>
+
+    <!-- /remove_file -->
+    <h2 id="remove_file">/remove_file<a class="anchor" href="#remove_file">#</a></h2>
+    <p>Removes a file or directory from Git tracking with <code>git rm</code> (using <code>-r</code> for directories). Tab completion offers tracked content; untracked content is excluded.</p>
+    <h3>Examples</h3>
+    <pre><code>/remove_file old.rs
+/remove_file legacy/</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>remove old.rs
+remove file legacy/
+git rm old.rs</code></pre>
+
+    <!-- /move_file -->
+    <h2 id="move_file">/move_file<a class="anchor" href="#move_file">#</a></h2>
+    <p>Renames or moves a tracked file with <code>git mv</code>. Tab completion for the first argument offers tracked files and directories; the second argument completes from all workspace paths.</p>
+    <h3>Examples</h3>
+    <pre><code>/move_file old.rs new.rs</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>move old.rs new.rs
+move file old.rs new.rs
+git mv old.rs new.rs</code></pre>
+
+    <!-- /restore -->
+    <h2 id="restore">/restore<a class="anchor" href="#restore">#</a></h2>
+    <p>Discards working-tree changes with <code>git restore &lt;file&gt;</code>, or unstages with <code>--staged</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/restore src/main.rs
+/restore --staged src/main.rs</code></pre>
+    <p>Natural-language form:</p>
+    <pre><code>restore src/main.rs</code></pre>
+
+    <!-- /commit -->
+    <h2 id="commit">/commit<a class="anchor" href="#commit">#</a></h2>
+    <p>Commits all tracked changes with <code>git commit -a -m &lt;message&gt;</code>. Quote the message when it contains spaces or issue-prefix characters such as <code>[#42]</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/commit Fix the parser
+/commit "[#42] Add the new feature"</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>commit Fix the bug
+commit "[#42] My feature"
+git commit -m "Fix the bug"</code></pre>
+
+    <!-- /amend -->
+    <h2 id="amend">/amend<a class="anchor" href="#amend">#</a></h2>
+    <p>Rewrites the last commit message with <code>git commit --amend -m &lt;message&gt;</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/amend Fix the parser
+/amend "[#42] Add the new feature"</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>amend Fix the bug
+amend "[#42] My feature"
+amend message "[#42] My feature"</code></pre>
+
+    <!-- /squash -->
+    <h2 id="squash">/squash<a class="anchor" href="#squash">#</a></h2>
+    <p>Squashes all commits on the current branch into a single commit, reusing the oldest commit's message. The branch is compared against <code>origin/main</code>, <code>origin/master</code>, <code>main</code>, or <code>master</code>. At least two commits are required, and squashing on <code>main</code> or <code>master</code> is blocked.</p>
+    <h3>Examples</h3>
+    <pre><code>/squash</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>squash
+squash branch
+squash commits
+git squash</code></pre>
+
+    <!-- /stash -->
+    <h2 id="stash">/stash<a class="anchor" href="#stash">#</a></h2>
+    <p>Saves and restores uncommitted changes on the stash stack.</p>
+    <ul>
+      <li><code>/stash</code>: runs <code>git stash push</code>, saves all staged and unstaged changes</li>
+      <li><code>/stash pop</code>: runs <code>git stash pop</code>, restores and removes the most recent entry</li>
+      <li><code>/stash list</code>: shows all stash entries with index and description</li>
+      <li><code>/stash drop</code>: runs <code>git stash drop</code>, discards the most recent entry</li>
+    </ul>
+    <h3>Examples</h3>
+    <pre><code>/stash
+/stash pop
+/stash list
+/stash drop</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>stash
+pop stash
+list stashes
+drop stash</code></pre>
+
+    <!-- /branch -->
+    <h2 id="branch">/branch<a class="anchor" href="#branch">#</a></h2>
+    <p>Lists, switches, creates, renames, or deletes branches.</p>
+    <pre><code>/branch [&lt;name&gt; | -b &lt;name&gt; | -m &lt;name&gt; | -d &lt;name&gt; | -a]</code></pre>
+    <ul>
+      <li>No arguments: lists local branches</li>
+      <li><code>-a</code>: lists all branches including remote</li>
+      <li><code>&lt;name&gt;</code>: switches to an existing branch</li>
+      <li><code>-b &lt;name&gt;</code>: creates and switches to a new branch</li>
+      <li><code>-m &lt;new-name&gt;</code>: renames the current branch</li>
+      <li><code>-d &lt;name&gt;</code>: deletes the branch; blocked on <code>main</code> and <code>master</code></li>
+    </ul>
+    <h3>Examples</h3>
+    <pre><code>/branch
+/branch -a
+/branch feature/login
+/branch -b feature/login
+/branch -m feature/auth
+/branch -d feature/old</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>branch
+list branches
+list all branches
+checkout main
+switch to main
+create branch feature/x
+rename to new-name
+delete branch feature/old</code></pre>
+
+    <!-- /merge -->
+    <h2 id="merge">/merge<a class="anchor" href="#merge">#</a></h2>
+    <p>Merges a branch into the current branch. Uses <code>gh pr merge --merge</code> if <code>gh</code> is installed, otherwise uses <code>git merge</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/merge feature/login</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>merge feature/login
+git merge feature/login</code></pre>
+
+    <!-- /rebase -->
+    <h2 id="rebase">/rebase<a class="anchor" href="#rebase">#</a></h2>
+    <p>Rebases the current branch against the repository default branch. Uses <code>gh</code> to detect the default branch when available, otherwise probes <code>origin/main</code> then <code>origin/master</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/rebase</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>rebase
+git rebase</code></pre>
+
+    <!-- /cherry_pick -->
+    <h2 id="cherry_pick">/cherry_pick<a class="anchor" href="#cherry_pick">#</a></h2>
+    <p>Cherry-picks a commit onto the current branch with <code>git cherry-pick</code>. Tab completion offers abbreviated commit hashes from the default branch.</p>
+    <h3>Examples</h3>
+    <pre><code>/cherry_pick abc1234</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>cherry pick abc1234
+cherry-pick abc1234
+git cherry-pick abc1234</code></pre>
+
+    <!-- /init_repo -->
+    <h2 id="init_repo">/init_repo<a class="anchor" href="#init_repo">#</a></h2>
+    <p>Initializes a Git repository in the workspace with <code>git init</code>. Reinitializing an existing repo is safe.</p>
+    <h3>Examples</h3>
+    <pre><code>/init_repo</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>init
+init repo
+git init</code></pre>
+
+    <!-- /push -->
+    <h2 id="push">/push<a class="anchor" href="#push">#</a></h2>
+    <p>Pushes the current branch to <code>origin</code> with <code>git push origin &lt;branch&gt;</code>. <code>--force</code> (or <code>-f</code>) runs <code>git push -f</code> but is blocked on <code>main</code> and <code>master</code>. After a successful push it reports if the branch needs a <code>/rebase</code> or <code>/squash</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/push
+/push --force</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>push
+git push origin
+force push
+push --force</code></pre>
+
+    <!-- /pull -->
+    <h2 id="pull">/pull<a class="anchor" href="#pull">#</a></h2>
+    <p>Checks out a GitHub pull request on a dedicated branch. Uses <code>gh pr checkout</code> if <code>gh</code> is installed, otherwise fetches directly from <code>origin</code>. After checkout it reports if the branch needs a <code>/rebase</code> or <code>/squash</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/pull 58</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>pull 58
+pull pr 58
+pull request 58
+pull #58</code></pre>
+
+    <!-- /pull_request -->
+    <h2 id="pull_request">/pull_request<a class="anchor" href="#pull_request">#</a></h2>
+    <p>Creates a pull request for the current branch. Requires the <code>gh</code> CLI. Runs pre-flight checks: blocks on <code>main</code>/<code>master</code>, requires at least one commit ahead of the base, and blocks when the branch is behind or has more than one commit ahead (reporting the <code>/rebase</code>/<code>/squash</code> hint). When checks pass it pushes with <code>--set-upstream origin</code> and calls <code>gh pr create</code> with the title and body from the single commit message.</p>
+    <p>Setting <code>auto_rebase = on</code> or <code>auto_squash = on</code> in <code>[orangu]</code> triggers the corresponding fix automatically before continuing.</p>
+    <h3>Examples</h3>
+    <pre><code>/pull_request</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>pull request
+create pull request
+open pull request
+new pull request
+create pr
+open pr
+new pr</code></pre>
+
+    <!-- /comment -->
+    <h2 id="comment">/comment<a class="anchor" href="#comment">#</a></h2>
+    <p>Adds a comment to a GitHub or GitLab issue. Requires the <code>gh</code> or <code>glab</code> CLI.</p>
+    <pre><code>/comment &lt;number&gt; "&lt;comment&gt;"
+/comment &lt;number&gt; &lt;file&gt;</code></pre>
+    <p>When the third argument is a quoted string it is used as the body directly. When it is a bare word it is treated as a filename relative to <code>~/.orangu/comments/</code>.</p>
+    <h3>Examples</h3>
+    <pre><code>/comment 51 "Thanks, merged."
+/comment 51 merged.md</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>add comment on 51 "My comment"
+comment on 51 "My comment"</code></pre>
+
+    <!-- /close -->
+    <h2 id="close">/close<a class="anchor" href="#close">#</a></h2>
+    <p>Closes a GitHub/GitLab issue or pull request. Requires <code>gh</code> or <code>glab</code>.</p>
+    <pre><code>/close -i &lt;number&gt;    # close an issue
+/close -p &lt;number&gt;    # close a pull request / merge request</code></pre>
+    <h3>Examples</h3>
+    <pre><code>/close -i 51
+/close -p 58</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>close issue 51
+close pr 58</code></pre>
+
+    <div class="doc-footer-nav">
+      <a href="core-tools.html" class="prev">Core Tools</a>
+      <a href="usage-tools.html" class="next">Usage Tools</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

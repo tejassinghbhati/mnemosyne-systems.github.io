@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal Interface — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="quickstart.html">Quick Start</a></li>
+        <li><a href="configuration.html">Configuration</a></li>
+        <li><a href="terminal.html" class="active">Terminal Interface</a>
+          <ul>
+            <li><a href="#startup">Startup</a></li>
+            <li><a href="#header">Header</a></li>
+            <li><a href="#prompt-area">Prompt area</a></li>
+            <li><a href="#waiting">Waiting state</a></li>
+            <li><a href="#sessions">Sessions</a></li>
+            <li><a href="#natural-language">Natural language</a></li>
+            <li><a href="#shortcuts">Shortcuts &amp; keys</a></li>
+            <li><a href="#completion">Tab completion</a></li>
+            <li><a href="#scrolling">Scrolling &amp; panning</a></li>
+            <li><a href="#footer">Footer</a></li>
+          </ul>
+        </li>
+        <li><a href="core-tools.html">Core Tools</a></li>
+        <li><a href="git-tools.html">Git Tools</a></li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+
+    <h1>Terminal Interface</h1>
+
+    <p><code>orangu</code> is an interactive terminal client with a persistent header and a prompt area anchored to the bottom of the terminal. This chapter covers the terminal itself: startup, the header and prompt, sessions, input editing, completion, and scrolling.</p>
+
+    <h2 id="startup">Startup<a class="anchor" href="#startup">#</a></h2>
+
+    <p>When started inside a Git repository, <strong>orangu</strong> fast-forwards the local default branch (<code>main</code>/<code>master</code>) to <code>origin</code> so it is in sync with upstream. The sync runs in the background and never delays startup. Progress appears on the left of the status bar: <code>Syncing with origin…</code> while running, then <code>Synced &lt;branch&gt; with origin</code> for a few seconds. It is skipped silently when there is no <code>origin</code> remote.</p>
+
+    <h3>Command-line options</h3>
+
+    <table>
+      <thead>
+        <tr><th>Short</th><th>Long</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>-c</code></td>
+          <td><code>--config</code></td>
+          <td>Path to the configuration file (<code>orangu.conf</code>)</td>
+        </tr>
+        <tr>
+          <td><code>-w</code></td>
+          <td><code>--workspace</code></td>
+          <td>Workspace root the local tools operate on. Defaults to <code>.</code></td>
+        </tr>
+        <tr>
+          <td><code>-r</code></td>
+          <td><code>--resume</code></td>
+          <td>Resume a specific session by UUID</td>
+        </tr>
+        <tr>
+          <td><code>-i</code></td>
+          <td><code>--init</code></td>
+          <td>Run the interactive setup wizard to generate a configuration</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="header">Header<a class="anchor" href="#header">#</a></h2>
+
+    <p>The top banner displays: current version, workspace status, server status, model status, and a <code>/help</code> reminder. While no request is active, server and model status are rechecked once per minute.</p>
+
+    <h2 id="prompt-area">Prompt area<a class="anchor" href="#prompt-area">#</a></h2>
+
+    <p>The prompt area stays at the bottom of the terminal window.</p>
+
+    <ul>
+      <li>Long input wraps upward</li>
+      <li>Submitted input moves directly into the output area</li>
+      <li>The banner and prompt stay fixed while the output window scrolls independently</li>
+      <li>Markdown in assistant output is rendered with terminal styling: bold, italic, headings, lists, links, and code blocks with syntax highlighting when the language is supported</li>
+    </ul>
+
+    <p>All slash commands are handled locally and are never sent to the model, so they continue to work even when the model is unavailable. Free-form prompts are blocked when the server or model status in the header is red.</p>
+
+    <h2 id="waiting">Waiting state<a class="anchor" href="#waiting">#</a></h2>
+
+    <p>While the model is generating a response, the left side of the footer shows a rolling status indicator:</p>
+
+    <pre><code>Thinking (2s)</code></pre>
+
+    <p>You can keep typing and submitting commands while a response is pending. Submitted commands are queued and executed in order after the active response finishes.</p>
+
+    <p>When using <code>provider = llama.cpp</code>, the footer switches from <code>Thinking (&lt;CLOCK&gt;)</code> to native generation throughput once tokens stream:</p>
+
+    <pre><code>Working @ 42.5 t/s (2s)</code></pre>
+
+    <p>Press <code>Esc</code> twice within 2 seconds during the waiting state to cancel the active request without exiting. Queued commands are preserved.</p>
+
+    <h2 id="sessions">Sessions<a class="anchor" href="#sessions">#</a></h2>
+
+    <p>Each run creates or resumes a session identified by a UUID. Session data is stored under <code>~/.orangu/sessions/&lt;uuid&gt;/</code>:</p>
+
+    <pre><code>history    per-session command history (readline)
+messages   full conversation turn history (JSON array)
+metadata   session metadata (JSON)</code></pre>
+
+    <p>The <code>metadata</code> file records when the session was created, last used, which workspace it belongs to, and which Git branch was active:</p>
+
+    <pre><code>{
+  "started_at": 1748000000,
+  "last_updated_at": 1748003600,
+  "workspace": "/home/user/myproject",
+  "branch": "feature/my-pr"
+}</code></pre>
+
+    <h3>Automatic resume</h3>
+
+    <p>On startup, orangu checks whether a session already exists for the current workspace path and Git branch. If exactly one matching session with history is found, it is resumed automatically. The status bar shows:</p>
+
+    <pre><code>Resuming session 550e8400-e29b-41d4-a716-446655440000</code></pre>
+
+    <p>If more than one session matches, a fresh session is started. Use <code>--resume &lt;uuid&gt;</code> to target a specific session explicitly.</p>
+
+    <h3>Session cleanup on exit</h3>
+
+    <p>On exit, the resume command is printed:</p>
+
+    <pre><code>orangu --resume 550e8400-e29b-41d4-a716-446655440000</code></pre>
+
+    <p>Sessions with no LLM interaction on <code>main</code>, <code>master</code>, or outside a Git repository are deleted automatically. Sessions on feature branches are always kept.</p>
+
+    <h2 id="natural-language">Natural-language command aliases<a class="anchor" href="#natural-language">#</a></h2>
+
+    <p>Local commands can be entered in plain language, like <code>open README.md</code>, <code>show status</code>, <code>create pull request</code>, or <code>switch model to &lt;name&gt;</code>. The phrases recognized for each command are listed under its <strong>Examples</strong> in the Core tools, Git tools, and Usage tools chapters.</p>
+
+    <h2 id="comments">Comments and ignored input<a class="anchor" href="#comments">#</a></h2>
+
+    <ul>
+      <li>First non-whitespace character <code>#</code>: treated as a local comment, shown in the transcript, not sent to the LLM</li>
+      <li>First non-whitespace character <code>\</code>: the line is ignored entirely</li>
+    </ul>
+
+    <h2 id="shortcuts">Shortcuts and keys<a class="anchor" href="#shortcuts">#</a></h2>
+
+    <h3>Prompt editing</h3>
+
+    <table>
+      <thead>
+        <tr><th>Key</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Ctrl+A</code> / <code>Home</code></td><td>Move cursor to start of input</td></tr>
+        <tr><td><code>Ctrl+E</code> / <code>End</code></td><td>Move cursor to end of input</td></tr>
+        <tr><td><code>Left</code></td><td>Move one character left</td></tr>
+        <tr><td><code>Right</code></td><td>Move one character right</td></tr>
+        <tr><td><code>Ctrl+Left</code></td><td>Move one word left (bash-style)</td></tr>
+        <tr><td><code>Ctrl+Right</code></td><td>Move one word right (bash-style)</td></tr>
+        <tr><td><code>Backspace</code></td><td>Delete character to the left</td></tr>
+        <tr><td><code>Delete</code></td><td>Delete character under cursor</td></tr>
+        <tr><td><code>Ctrl+D</code></td><td>Like Delete; exits when input is empty</td></tr>
+        <tr><td><code>Ctrl+K</code></td><td>Delete from cursor to end of line</td></tr>
+        <tr><td><code>Ctrl+U</code></td><td>Delete from start of line to cursor</td></tr>
+        <tr><td><code>Ctrl+W</code></td><td>Delete from cursor to previous whitespace</td></tr>
+        <tr><td><code>Alt+Backspace</code></td><td>Delete backward using bash-style word boundaries</td></tr>
+        <tr><td><code>Alt+D</code></td><td>Delete forward using bash-style word boundaries</td></tr>
+      </tbody>
+    </table>
+
+    <h3>History</h3>
+
+    <table>
+      <thead>
+        <tr><th>Key</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>↑</code></td><td>Move backward through command history</td></tr>
+        <tr><td><code>↓</code></td><td>Move forward through command history</td></tr>
+      </tbody>
+    </table>
+
+    <p>History navigation preserves the current unfinished line as a draft and restores it when you move back out of history.</p>
+
+    <h3>Inline command hints (ghost text)</h3>
+
+    <p>As you type, a grey inline hint previews the command your input is growing into. It covers slash commands and natural-language bindings:</p>
+
+    <ul>
+      <li>Press <code>Tab</code> to accept the hint</li>
+      <li>Press <code>Shift+Tab</code> to cycle through alternative candidates when several commands share the prefix</li>
+      <li>The hint disappears once your input already spells a complete command</li>
+      <li>Editing the line, moving the cursor, or pasting resets the cycle back to the first candidate</li>
+    </ul>
+
+    <h3>Waiting and exit control</h3>
+
+    <table>
+      <thead>
+        <tr><th>Key</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Esc Esc</code> (within 2s)</td><td>Cancel the active request, keep queued commands</td></tr>
+        <tr><td><code>Ctrl+C</code></td><td>Arm quit mode, clear current input</td></tr>
+        <tr><td><code>Ctrl+C</code> again (within 2s)</td><td>Exit the client</td></tr>
+        <tr><td><code>Enter</code></td><td>Submit the current input line</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="completion">Tab completion<a class="anchor" href="#completion">#</a></h2>
+
+    <p><code>Tab</code> uses context-sensitive completion. The first <code>Tab</code> inserts the first match; repeated presses cycle through remaining matches. Completion cycling resets as soon as you edit the line, move the cursor, or paste text.</p>
+
+    <p>The completion modes are checked in order:</p>
+
+    <ol>
+      <li><code>/branch</code>, <code>/checkout</code>, or <code>checkout </code>: complete branch names first, then workspace file paths</li>
+      <li><code>switch to </code>: complete branch names and tag names</li>
+      <li><code>/add_file</code>, <code>add </code>, <code>add file </code>: complete untracked directories first, then untracked files</li>
+      <li><code>/remove_file</code>, <code>remove </code>, <code>git rm </code>: complete tracked directories first, then tracked files</li>
+      <li><code>/move_file</code>: first argument from tracked files; second from all workspace paths</li>
+      <li><code>/cherry_pick</code>, <code>cherry pick </code>: abbreviated commit hashes from the default branch</li>
+      <li><code>/merge</code>, <code>merge </code>: local branch names first, then remote-only branch names</li>
+      <li><code>/branch -d</code>, <code>delete branch </code>: local branch names excluding <code>main</code>/<code>master</code></li>
+      <li><code>/session </code>: session UUIDs sorted newest-first, then distinct workspace paths</li>
+      <li><code>/model </code>: models available on the selected server</li>
+      <li><code>/server </code>: names of all configured server sections</li>
+      <li><code>/open_file</code>, <code>/show_file</code>: workspace file paths recursively; once a file is present, next Tab cycles commit history</li>
+      <li><code>/</code>: built-in slash commands</li>
+      <li>Otherwise: filesystem entries from the current token relative to the workspace</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Path completion details:</strong> Completion skips <code>.git</code>, <code>build</code>, and <code>target</code> content, as well as paths ignored by the workspace <code>.gitignore</code>. Quoted file completion is supported for <code>/open_file "..."</code> and similar forms.
+    </div>
+
+    <h2 id="scrolling">Output scrolling and horizontal panning<a class="anchor" href="#scrolling">#</a></h2>
+
+    <table>
+      <thead>
+        <tr><th>Key</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Shift+PageUp</code></td><td>Scroll backward one full page</td></tr>
+        <tr><td><code>Shift+PageDown</code></td><td>Scroll forward one full page</td></tr>
+        <tr><td><code>Alt+Up</code></td><td>Scroll backward one line</td></tr>
+        <tr><td><code>Alt+Down</code></td><td>Scroll forward one line</td></tr>
+        <tr><td><code>Alt+Right</code></td><td>Pan the output window right</td></tr>
+        <tr><td><code>Alt+Left</code></td><td>Pan the output window left</td></tr>
+      </tbody>
+    </table>
+
+    <p>The output scrollback buffer keeps the most recent 10,000 lines. <code>orangu</code> maintains a virtual canvas wider than the visible terminal; source files shown with <code>/show_file</code> may contain lines longer than the terminal width, which are laid out on the full canvas and can be panned horizontally without reflowing. The virtual canvas width is set by the <code>width</code> key in the <code>[orangu]</code> config section (default <code>512</code>).</p>
+
+    <h2 id="footer">Footer behavior<a class="anchor" href="#footer">#</a></h2>
+
+    <ul>
+      <li><strong>Left</strong>: <code>Thinking (&lt;CLOCK&gt;)</code> while waiting for a response to start; <code>Working @ X.Y t/s (&lt;CLOCK&gt;)</code> while tokens stream</li>
+      <li><strong>Center</strong>: <code>Pending: X</code> showing how many queued commands are waiting</li>
+      <li><strong>Right</strong>: the model name currently in use</li>
+    </ul>
+
+    <div class="doc-footer-nav">
+      <a href="configuration.html" class="prev">Configuration</a>
+      <a href="core-tools.html" class="next">Core Tools</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

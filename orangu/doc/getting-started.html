@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<!-- ─── Top nav ─────────────────────────────── -->
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+
+  <!-- ─── Sidebar ─────────────────────────── -->
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html" class="active">Getting Started</a></li>
+        <li><a href="quickstart.html">Quick Start</a></li>
+        <li><a href="configuration.html">Configuration</a></li>
+        <li><a href="terminal.html">Terminal Interface</a>
+          <ul>
+            <li><a href="terminal.html#startup">Startup</a></li>
+            <li><a href="terminal.html#sessions">Sessions</a></li>
+            <li><a href="terminal.html#completion">Tab completion</a></li>
+            <li><a href="terminal.html#shortcuts">Shortcuts &amp; keys</a></li>
+          </ul>
+        </li>
+        <li><a href="core-tools.html">Core Tools</a></li>
+        <li><a href="git-tools.html">Git Tools</a></li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ─── Content ─────────────────────────── -->
+  <main class="doc-content">
+
+    <h1>Getting Started</h1>
+
+    <h2 id="step1">1. Start llama.cpp<a class="anchor" href="#step1">#</a></h2>
+
+    <p>Run a local <code>llama-server</code> instance with an OpenAI-compatible endpoint:</p>
+
+    <pre><code>llama-server \
+  --model /path/to/model.gguf \
+  --port 8100 \
+  --ctx-size 8192</code></pre>
+
+    <p><strong>orangu</strong> expects an OpenAI-compatible endpoint such as:</p>
+
+    <pre><code>http://localhost:8100/v1</code></pre>
+
+    <p>Any OpenAI-compatible server works: <a href="https://github.com/ggml-org/llama.cpp" target="_blank">llama.cpp</a>, <a href="https://ollama.com" target="_blank">Ollama</a>, LM Studio, or a hosted endpoint.</p>
+
+    <h2 id="step2">2. Create a configuration<a class="anchor" href="#step2">#</a></h2>
+
+    <p>The quickest path is the interactive wizard. It asks for the LLM URL, auto-detects a model the server advertises, walks every option showing its default, and writes <code>~/.orangu/orangu.conf</code> after a confirmation:</p>
+
+    <pre><code>orangu --init</code></pre>
+
+    <p>With an uninstalled build:</p>
+
+    <pre><code>cargo run --bin orangu -- --init</code></pre>
+
+    <p>Alternatively, copy the sample file and adjust the model name and endpoint:</p>
+
+    <pre><code>cp doc/etc/orangu.conf ./orangu.conf</code></pre>
+
+    <p>See the <a href="configuration.html">Configuration</a> chapter for all available options.</p>
+
+    <h2 id="step3">3. Run the client<a class="anchor" href="#step3">#</a></h2>
+
+    <p>If you used <code>orangu --init</code>, the configuration lives at <code>~/.orangu/orangu.conf</code> (a default lookup location), so just run:</p>
+
+    <pre><code>orangu</code></pre>
+
+    <p>Otherwise point the client at your configuration file:</p>
+
+    <pre><code>orangu --config ./orangu.conf</code></pre>
+
+    <p>With an uninstalled build:</p>
+
+    <pre><code>cargo run --bin orangu -- --config ./orangu.conf</code></pre>
+
+    <h2 id="step4">4. Try a few commands<a class="anchor" href="#step4">#</a></h2>
+
+    <p>Start with these slash commands to explore what orangu can do:</p>
+
+    <pre><code>/help
+/server
+/disconnect
+/reload
+/tools
+/model
+/session
+/list_files
+/open_file README.md
+/show_file README.md
+/build
+/add_file README.md
+/amend &lt;message&gt;
+/branch main
+/branch -b feature/new
+/branch -m new-name
+/branch -d feature/old
+/cherry_pick &lt;commit&gt;
+/comment 51 "My comment"
+/close -i 51
+/commit &lt;message&gt;
+/restore README.md
+/diff
+/init_repo
+/log
+/log 5
+/merge feature/foo
+/move_file old.rs new.rs
+/pull 42
+/push
+/push --force
+/rebase
+/remove_file README.md
+/review
+/squash
+/status
+/usage
+/clear
+/quit</code></pre>
+
+    <h2 id="natural-language">Natural-language input<a class="anchor" href="#natural-language">#</a></h2>
+
+    <p>You can also type plain language instead of slash commands. orangu recognizes these natural-language aliases for all built-in commands:</p>
+
+    <pre><code>list files
+open README.md
+show README.md
+list models
+log
+status
+rebase
+merge feature/foo
+checkout main
+add README.md
+remove README.md
+move old.rs new.rs
+cherry pick abc1234
+commit "[#42] My feature"
+amend "[#42] My feature"
+push
+force push
+init repo
+squash
+delete feature/foo
+show help</code></pre>
+
+    <div class="callout">
+      <strong>Comment syntax:</strong> Lines whose first non-whitespace character is <code>#</code> stay local and are never sent to the model. Lines whose first non-whitespace character is <code>\</code> are ignored entirely.
+    </div>
+
+    <div class="doc-footer-nav">
+      <a href="building.html" class="prev">Building</a>
+      <a href="quickstart.html" class="next">Quick Start</a>
+    </div>
+
+  </main>
+
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

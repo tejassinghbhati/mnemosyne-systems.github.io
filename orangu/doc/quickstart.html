@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="quickstart.html" class="active">Quick Start</a></li>
+        <li><a href="configuration.html">Configuration</a></li>
+        <li><a href="terminal.html">Terminal Interface</a></li>
+        <li><a href="core-tools.html">Core Tools</a></li>
+        <li><a href="git-tools.html">Git Tools</a></li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+
+    <h1>Quick Start</h1>
+
+    <p>This chapter gets <strong>orangu</strong> running against a local OpenAI-compatible server such as <strong>llama.cpp</strong> with the sample configuration in <code>doc/etc/orangu.conf</code>.</p>
+
+    <h2 id="start-llama">Start llama.cpp<a class="anchor" href="#start-llama">#</a></h2>
+
+    <p>Run <code>llama-server</code> with your preferred model:</p>
+
+    <pre><code>llama-server -hf ggml-org/gemma-4-E4B-it-GGUF \
+             --port 8100 \
+             --ctx-size 65536 \
+             -sm layer \
+             -t 4 \
+             --webui-mcp-proxy \
+             --fit on</code></pre>
+
+    <p><strong>orangu</strong> expects an OpenAI-compatible endpoint:</p>
+
+    <pre><code>http://localhost:8100/v1</code></pre>
+
+    <h2 id="create-configuration">Create a configuration<a class="anchor" href="#create-configuration">#</a></h2>
+
+    <p>The fastest path is the interactive wizard, which auto-detects a model from the server and writes <code>~/.orangu/orangu.conf</code>:</p>
+
+    <pre><code>orangu --init</code></pre>
+
+    <p>See <a href="configuration.html">Configuration</a> for details of the wizard. Or copy the sample:</p>
+
+    <pre><code>cp doc/etc/orangu.conf ./orangu.conf</code></pre>
+
+    <p>Default configuration lookup order:</p>
+
+    <ol>
+      <li><code>./orangu.conf</code></li>
+      <li><code>~/.orangu/orangu.conf</code></li>
+    </ol>
+
+    <h2 id="run">Run the client<a class="anchor" href="#run">#</a></h2>
+
+    <pre><code>orangu</code></pre>
+
+    <p>Or point it at a specific configuration file:</p>
+
+    <pre><code>orangu --config ./orangu.conf</code></pre>
+
+    <p>By default the workspace tools operate on the current directory. Use <code>--workspace /path/to/project</code> to point <strong>orangu</strong> at another tree. The startup flags have short forms: <code>-c</code> for <code>--config</code>, <code>-w</code> for <code>--workspace</code>, <code>-r</code> for <code>--resume</code>, and <code>-i</code> for <code>--init</code>.</p>
+
+    <h2 id="commands">First commands to try<a class="anchor" href="#commands">#</a></h2>
+
+    <pre><code>/help
+/server
+/disconnect
+/reload
+/tools
+/model
+/session &lt;UUID&gt;
+/list_files
+/open_file README.md
+/show_file README.md
+/build
+/add_file README.md
+/amend "[#42] My feature"
+/branch main
+/branch -b feature/new
+/branch -m new-name
+/branch -d feature/old
+/cherry_pick abc1234
+/comment 51 "My comment"
+/close -i 51
+/commit "[#42] My feature"
+/restore README.md
+/diff
+/init_repo
+/log
+/log 5
+/merge feature/foo
+/move_file old.rs new.rs
+/pull 42
+/push
+/push --force
+/rebase
+/remove_file README.md
+/review
+/squash
+/status
+/usage
+/clear
+/quit</code></pre>
+
+    <h2 id="sessions">Sessions<a class="anchor" href="#sessions">#</a></h2>
+
+    <p><strong>orangu</strong> automatically resumes an existing session when you return to the same workspace and Git branch. When a previous session is found, the status bar shows:</p>
+
+    <pre><code>Resuming session 550e8400-e29b-41d4-a716-446655440000</code></pre>
+
+    <p>for five seconds or until the first command is run. On exit, the resume command is printed so you can return from a different branch or machine:</p>
+
+    <pre><code>orangu --resume 550e8400-e29b-41d4-a716-446655440000</code></pre>
+
+    <p>Sessions that had no LLM interaction on <code>main</code>, <code>master</code>, or outside a Git repository are deleted automatically on exit. Feature branch sessions are always kept.</p>
+
+    <h2 id="comments">Comments and ignored input<a class="anchor" href="#comments">#</a></h2>
+
+    <div class="callout">
+      Lines whose first non-whitespace character is <code>#</code> stay local and are not sent to the model. Lines whose first non-whitespace character is <code>\</code> are ignored entirely.
+    </div>
+
+    <div class="doc-footer-nav">
+      <a href="getting-started.html" class="prev">Getting Started</a>
+      <a href="configuration.html" class="next">Configuration</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

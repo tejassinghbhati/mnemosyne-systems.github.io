@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — orangu</title>
+  <meta name="description" content="The complete orangu manual: getting started, configuration, terminal interface, slash commands, Git tools, and more." />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">ORANGU</a>
+  <ul class="nav-center">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="community.html">Community</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost" href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <section class="hero" style="min-height: 30vh; padding-bottom: 2rem;">
+    <p class="hero-eyebrow">Documentation</p>
+    <h1 class="hero-title">The complete manual.</h1>
+    <p class="hero-subtitle" style="margin-bottom: 2rem;">
+      Everything you need to know about configuring, running, and contributing to orangu.
+    </p>
+    <a href="doc/introduction.html" class="btn-primary">
+      Browse the manual
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </section>
+
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="doc-grid-home reveal">
+
+        <a href="doc/introduction.html" class="doc-cell">
+          <span class="doc-cell-label">Overview</span>
+          <h3>Introduction</h3>
+          <p>What orangu is, what it can do, and how to join the community.</p>
+        </a>
+
+        <a href="doc/building.html" class="doc-cell">
+          <span class="doc-cell-label">Setup</span>
+          <h3>Building</h3>
+          <p>Prerequisites, how to build from source, run tests, and install the binary.</p>
+        </a>
+
+        <a href="doc/getting-started.html" class="doc-cell">
+          <span class="doc-cell-label">Guide</span>
+          <h3>Getting Started</h3>
+          <p>Start llama.cpp, create a configuration, run the client, try your first commands.</p>
+        </a>
+
+        <a href="doc/quickstart.html" class="doc-cell">
+          <span class="doc-cell-label">Guide</span>
+          <h3>Quick Start</h3>
+          <p>The condensed path from a running LLM server to a working orangu session.</p>
+        </a>
+
+        <a href="doc/configuration.html" class="doc-cell">
+          <span class="doc-cell-label">Reference</span>
+          <h3>Configuration</h3>
+          <p>Every option in <code>orangu.conf</code>: the <code>[orangu]</code> section, server sections, and the interactive wizard.</p>
+        </a>
+
+        <a href="doc/terminal.html" class="doc-cell">
+          <span class="doc-cell-label">Reference</span>
+          <h3>Terminal Interface</h3>
+          <p>The header, prompt, sessions, ghost-text hints, Tab completion, scrolling, and all key bindings.</p>
+        </a>
+
+        <a href="doc/core-tools.html" class="doc-cell">
+          <span class="doc-cell-label">Commands</span>
+          <h3>Core Tools</h3>
+          <p><code>/help</code>, <code>/model</code>, <code>/session</code>, <code>/prune</code>, <code>/build</code>, <code>/review</code>, and all workspace commands.</p>
+        </a>
+
+        <a href="doc/git-tools.html" class="doc-cell">
+          <span class="doc-cell-label">Commands</span>
+          <h3>Git Tools</h3>
+          <p>Every Git command: commit, push, rebase, squash, branch, cherry-pick, stash, PR, and more.</p>
+        </a>
+
+        <a href="doc/usage-tools.html" class="doc-cell">
+          <span class="doc-cell-label">Commands</span>
+          <h3>Usage Tools</h3>
+          <p><code>/usage</code>, <code>/clear</code>, and <code>/quit</code>: session housekeeping commands.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container-sm">
+      <div class="cta-band reveal">
+        <span class="section-label" style="display:block; margin-bottom: 1.25rem;">Local LLM Guide</span>
+        <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; margin-bottom: 1rem;">
+          Running orangu with llama.cpp
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-2); max-width: 420px; margin: 0 auto 1.75rem; line-height: 1.8;">
+          Recommended server flags, example configuration, quick verification steps, and tips for tool-calling workloads.
+        </p>
+        <a href="doc/local-llm.html" class="btn-primary">Read the Local LLM guide</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="footer-brand" href="index.html">ORANGU</a>
+  <ul class="footer-links">
+    <li><a href="doc/introduction.html">Introduction</a></li>
+    <li><a href="doc/getting-started.html">Getting Started</a></li>
+    <li><a href="doc/configuration.html">Configuration</a></li>
+    <li><a href="doc/git-tools.html">Git Tools</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a></li>
+  </ul>
+  <span class="footer-copy">GPL v3 · <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

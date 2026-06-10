@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Tools — orangu</title>
+  <link rel="stylesheet" href="doc.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">ORANGU</a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="getting-started.html">Docs</a></li>
+    <li><a href="../community.html">Community</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/orangu" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">User Manual</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="building.html">Building</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="quickstart.html">Quick Start</a></li>
+        <li><a href="configuration.html">Configuration</a></li>
+        <li><a href="terminal.html">Terminal Interface</a></li>
+        <li><a href="core-tools.html" class="active">Core Tools</a>
+          <ul>
+            <li><a href="#help">/help</a></li>
+            <li><a href="#tools">/tools</a></li>
+            <li><a href="#model">/model</a></li>
+            <li><a href="#server">/server</a></li>
+            <li><a href="#prune">/prune</a></li>
+            <li><a href="#session">/session</a></li>
+            <li><a href="#list_files">/list_files</a></li>
+            <li><a href="#open_file">/open_file</a></li>
+            <li><a href="#show_file">/show_file</a></li>
+            <li><a href="#build">/build</a></li>
+            <li><a href="#review">/review</a></li>
+          </ul>
+        </li>
+        <li><a href="git-tools.html">Git Tools</a></li>
+        <li><a href="usage-tools.html">Usage Tools</a></li>
+        <li><a href="local-llm.html">Local LLM</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Community</div>
+      <ul>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/issues" target="_blank">Issues</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank">Discussions</a></li>
+        <li><a href="https://github.com/mnemosyne-systems/orangu/blob/main/LICENSE" target="_blank">License (GPL v3)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+
+    <h1>Core Tools</h1>
+
+    <p>The core tools are the local slash commands that drive the client itself: discovering commands, switching server and model, managing sessions, browsing the workspace, building the project, and reviewing changes. They are handled locally and are never sent to the model, so they keep working even when the server or model status in the header is red.</p>
+
+    <p>Every command also accepts the natural-language aliases listed in its <strong>Examples</strong>. Recognized phrases are matched only for these built-in commands; any other input is sent to the model as an ordinary prompt.</p>
+
+    <!-- /help -->
+    <h2 id="help">/help<a class="anchor" href="#help">#</a></h2>
+
+    <p>Shows the list of available commands with a one-line description of each, grouped the same way as in this manual. It is the fastest way to rediscover a command name or its arguments without leaving the prompt, and it works regardless of server or model state.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/help</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>help
+show help
+show commands
+show available commands</code></pre>
+
+    <!-- /tools -->
+    <h2 id="tools">/tools<a class="anchor" href="#tools">#</a></h2>
+
+    <p>Lists the model-facing workspace tools (<code>read_file</code>, <code>edit_file</code>, <code>list_directory</code>, <code>fetch_url</code>, and <code>run_shell_command</code>) that the active model may call. <code>/tools</code> is purely informational and is separate from the local <code>/list_files</code> command.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/tools</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>tools
+show tools
+list tools
+show local tools</code></pre>
+
+    <!-- /model -->
+    <h2 id="model">/model<a class="anchor" href="#model">#</a></h2>
+
+    <p>Selects the model used for requests on the active server. With no argument it lists the server's models (active model in green, others in red). With a name it switches to that model. <code>Tab</code> after <code>/model </code> cycles through the models the server reports.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/model
+/model llama3.1:8b</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>models
+list models
+show models
+model
+current model
+use model llama3.1:8b
+switch model to llama3.1:8b</code></pre>
+
+    <!-- /server -->
+    <h2 id="server">/server<a class="anchor" href="#server">#</a></h2>
+
+    <p>Selects the server <code>orangu</code> talks to. With no argument it lists the configured servers with the active one in green. With a name it switches to that server and re-detects an available model, refreshing the model status in the header. <code>Tab</code> after <code>/server </code> cycles through configured server names.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/server
+/server local-llama</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>use server local-llama
+switch server to local-llama
+set server to local-llama</code></pre>
+
+    <!-- /disconnect /reload /restart -->
+    <h2 id="disconnect">/disconnect<a class="anchor" href="#disconnect">#</a></h2>
+    <p>Disconnects from the current server. The server status turns red and free-form prompts are blocked, but all local commands continue to work. Use <code>/server</code> or <code>/reload</code> to reconnect.</p>
+    <h3>Examples</h3>
+    <pre><code>/disconnect</code></pre>
+
+    <h2 id="reload">/reload<a class="anchor" href="#reload">#</a></h2>
+    <p>Restores the configured model and server from the configuration file, undoing any runtime switches. Also clears the in-memory conversation history, so it doubles as a way to start a clean exchange.</p>
+    <h3>Examples</h3>
+    <pre><code>/reload</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>reload
+reload configuration
+reset session</code></pre>
+
+    <h2 id="restart">/restart<a class="anchor" href="#restart">#</a></h2>
+    <p>Restarts <code>orangu</code> in place, resuming the same workspace and session. The current session is saved first, then the running process is replaced with the same binary. This is the recommended way to pick up a freshly built binary or an edited configuration file without losing conversation context.</p>
+    <h3>Examples</h3>
+    <pre><code>/restart</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>restart
+restart orangu</code></pre>
+
+    <!-- /prune -->
+    <h2 id="prune">/prune<a class="anchor" href="#prune">#</a></h2>
+
+    <p>Deletes session directories from <code>~/.orangu/sessions/</code>. The active session is never deleted regardless of strategy.</p>
+
+    <ul>
+      <li>With a UUID: deletes that single session</li>
+      <li>With <code>all</code>: deletes every session except the active one</li>
+      <li>With <code>--workspace &lt;path&gt;</code> or <code>-w &lt;path&gt;</code>: deletes all sessions whose recorded workspace path contains <code>&lt;path&gt;</code></li>
+      <li>With <code>--older-than &lt;days&gt;</code> or <code>-o &lt;days&gt;</code>: deletes all sessions whose <code>last_updated_at</code> timestamp is more than <code>&lt;days&gt;</code> days in the past</li>
+    </ul>
+
+    <p>Tab completion after <code>/prune </code> cycles through session UUIDs newest-first.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/prune 550e8400-e29b-41d4-a716-446655440000
+/prune all
+/prune -w myproject
+/prune -o 30</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>prune session 550e8400-e29b-41d4-a716-446655440000
+prune all
+prune sessions in myproject
+prune sessions older than 30</code></pre>
+
+    <!-- /session -->
+    <h2 id="session">/session<a class="anchor" href="#session">#</a></h2>
+
+    <p>Lists, switches, and opens sessions. With no argument it lists all sessions under <code>~/.orangu/sessions/</code>, one line per session with aligned columns: UUID, start date, last-updated date, command count, branch, and workspace path. Sessions are sorted most-recent first.</p>
+
+    <pre><code>UUID                                  STARTED       LAST          CMDS  BRANCH                WORKSPACE
+550e8400-e29b-41d4-a716-446655440000  202605220910  202605221143    42  feature/my-pr         /home/user/myproject</code></pre>
+
+    <p>The argument is resolved in order:</p>
+    <ol>
+      <li>If it matches a session UUID, switches to that session.</li>
+      <li>Otherwise treated as a workspace match: if exactly one session matches it switches; if several do, it lists only those.</li>
+      <li>If the argument resolves to a real directory, opens it as a new workspace.</li>
+    </ol>
+
+    <p>Tab completion after <code>/session </code> cycles UUIDs newest-first, then distinct workspace paths, then falls back to filesystem directory completion.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/session
+/session myproject
+/session 550e8400-e29b-41d4-a716-446655440000
+/session ~/PostgreSQL/pgagroal/official</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>session
+sessions
+switch session
+list sessions
+show sessions</code></pre>
+
+    <!-- /list_files -->
+    <h2 id="list_files">/list_files<a class="anchor" href="#list_files">#</a></h2>
+
+    <p>Lists the workspace files as a tree. This is a local convenience command for quickly orienting yourself in the workspace; it is separate from the model-facing <code>list_directory</code> tool.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/list_files</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>list files
+show files
+list workspace files</code></pre>
+
+    <!-- /open_file -->
+    <h2 id="open_file">/open_file<a class="anchor" href="#open_file">#</a></h2>
+
+    <p>Opens a workspace file in your <code>$EDITOR</code>. The command is workspace-scoped; paths outside the workspace are rejected. It launches the editor in a separate window so <code>orangu</code> stays usable, and it never waits for the editor to close.</p>
+
+    <p>Tab completion after <code>/open_file </code> searches the workspace recursively. Quoted paths (<code>/open_file "..."</code>) are supported.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/open_file README.md
+/open_file src/main.rs</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>open README.md
+open file README.md
+edit src/main.rs</code></pre>
+
+    <!-- /show_file -->
+    <h2 id="show_file">/show_file<a class="anchor" href="#show_file">#</a></h2>
+
+    <p>Shows the contents of a workspace file, optionally at a specific Git ref and with per-line blame columns.</p>
+
+    <pre><code>/show_file [--hash] [--author] &lt;path&gt; [&lt;ref&gt;]</code></pre>
+
+    <p>Without a ref, shows the current workspace file (using <code>bat</code> if installed). With a ref, retrieves the file at that ref via <code>git show &lt;ref&gt;:&lt;path&gt;</code>. <code>--hash</code> and <code>--author</code> add per-line blame columns. Because source lines may be wider than the terminal, output is laid out on the full virtual canvas and can be panned horizontally with <code>Alt+Left</code>/<code>Alt+Right</code>.</p>
+
+    <h3>Examples</h3>
+    <pre><code>/show_file src/main.rs
+/show_file --hash --author src/main.rs
+/show_file src/main.rs HEAD~3</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>show README.md
+show file README.md</code></pre>
+
+    <!-- /build -->
+    <h2 id="build">/build<a class="anchor" href="#build">#</a></h2>
+
+    <p>Builds the workspace project, detecting the toolchain from the workspace root. Each step is reported individually and the pipeline stops on the first failure:</p>
+
+    <ul>
+      <li><strong>Rust</strong> (<code>Cargo.toml</code>): runs <code>cargo fmt</code>, <code>cargo clippy</code>, <code>cargo build</code>, and <code>cargo test</code></li>
+      <li><strong>C</strong> (<code>CMakeLists.txt</code>): runs <code>clang-format.sh</code> if present, creates a <code>build/</code> directory if needed, runs <code>cmake ..</code> on the first build, then <code>make</code></li>
+      <li><strong>Java</strong> (<code>pom.xml</code>): installs frontend dependencies with <code>npm ci</code> when outdated, runs <code>npm run fix</code> and <code>npm run check</code> for the frontend (if <code>src/frontend/</code> exists), then <code>mvn package</code></li>
+    </ul>
+
+    <h3>Examples</h3>
+    <pre><code>/build</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>build
+build project
+run build</code></pre>
+
+    <!-- /review -->
+    <h2 id="review">/review<a class="anchor" href="#review">#</a></h2>
+
+    <p>Opens a full-screen, two-pane view for reviewing the changes on the current branch before sharing them, with the status bar and input window kept at the bottom so you can ask the model for help. Available inside a Git repository; has no <code>gh</code> dependency.</p>
+
+    <h3>What is reviewed</h3>
+
+    <p>The review shows everything the current branch adds on top of the default branch, including both committed changes and local uncommitted changes (staged and unstaged). The comparison is made against the merge base with the default branch (<code>origin/main</code> → <code>origin/master</code> → <code>main</code> → <code>master</code>).</p>
+
+    <h3>Layout</h3>
+
+    <p>The view is split into two panes:</p>
+    <ul>
+      <li><strong>Left pane</strong>: diff of the selected file, rendered through the configured pager (e.g. <code>delta</code>) when set. Scrolls independently.</li>
+      <li><strong>Right pane</strong>: checklist of changed files. Each row shows a status box: <code>[ ]</code> not yet reviewed, <code>[*]</code> in progress, <code>[x]</code> done.</li>
+    </ul>
+
+    <h3>Examples</h3>
+    <pre><code>/review</code></pre>
+    <p>Natural-language forms:</p>
+    <pre><code>review
+review changes
+code review
+review branch</code></pre>
+
+    <div class="doc-footer-nav">
+      <a href="terminal.html" class="prev">Terminal Interface</a>
+      <a href="git-tools.html" class="next">Git Tools</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>© <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a> · GPL v3</span>
+  <span><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a> · <a href="../community.html">Community</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

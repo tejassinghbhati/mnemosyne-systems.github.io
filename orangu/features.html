@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features — orangu</title>
+  <meta name="description" content="Everything orangu can do: streaming AI, full Git workflow, workspace tools, and a terminal experience that thinks with you." />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">ORANGU</a>
+  <ul class="nav-center">
+    <li><a href="features.html" class="active">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="community.html">Community</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost" href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <section class="hero" style="min-height: 36vh; padding-bottom: 2rem;">
+    <p class="hero-eyebrow">Features</p>
+    <h1 class="hero-title">Everything you need,<br>nothing you don't.</h1>
+    <p class="hero-subtitle" style="margin-bottom: 0;">
+      orangu is deliberately minimal. Every feature earns its place: no bloat, no cloud dependencies, no telemetry.
+    </p>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <span class="section-label">AI Core</span>
+      <div class="sep"></div>
+      <h2 class="section-title">Streaming AI, on your terms.</h2>
+
+      <div class="grid-3">
+        <div class="g-cell">
+          <h3>OpenAI-compatible</h3>
+          <p>Works with any server that speaks the OpenAI API: llama.cpp, Ollama, LM Studio, and hosted endpoints. Switch servers and models without restarting.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Live streaming</h3>
+          <p>Tokens stream live to your terminal. For llama.cpp, the footer shows native throughput: <code>Working @ 42.5 t/s (2s)</code>.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Fully offline</h3>
+          <p>After the initial model download, no internet connection is required. Your conversations, your code, your machine. Zero telemetry.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Persistent sessions</h3>
+          <p>Every session is saved and auto-resumed when you return to the same workspace and branch. Full context is preserved across restarts.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Workspace tools</h3>
+          <p>The model reads, edits, lists, and runs, all within your workspace and within configured limits. You control exactly what it can touch.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Request cancellation</h3>
+          <p>Press <code>Esc Esc</code> to cancel any in-flight request. Queue up the next command while the model is still working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <span class="section-label">Git Integration</span>
+      <div class="sep"></div>
+      <h2 class="section-title">Git, from a single prompt.</h2>
+
+      <div class="grid-3">
+        <div class="g-cell">
+          <h3>Branch management</h3>
+          <p>List, create, rename, switch, and delete branches. <code>/branch</code>, <code>/checkout</code>, <code>/merge</code>, all with Tab completion.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Commit workflow</h3>
+          <p><code>/commit</code>, <code>/amend</code>, <code>/squash</code>, <code>/push</code>: the full commit-to-push loop without leaving orangu.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Review mode</h3>
+          <p>Full-screen two-pane diff review of your branch against main. Mark lines, add comments, and request AI feedback. No browser needed.</p>
+        </div>
+        <div class="g-cell">
+          <h3>GitHub and GitLab</h3>
+          <p>Create PRs, check them out by number, close issues, add comments, all wired to <code>gh</code> or <code>glab</code> when installed.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Auto-sync</h3>
+          <p>orangu fast-forwards your default branch against origin in the background on every start, keeping your repo in sync silently.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Cherry-pick and stash</h3>
+          <p>Pick commits from other branches, or stash and restore uncommitted changes, all with Tab completion over commit hashes and stash entries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="container">
+      <span class="section-label">Terminal Experience</span>
+      <div class="sep"></div>
+      <h2 class="section-title">A terminal that thinks with you.</h2>
+
+      <div class="grid-3">
+        <div class="g-cell">
+          <h3>Ghost text hints</h3>
+          <p>As you type, a grey inline preview shows the command you're building toward. Tab accepts it; Shift+Tab cycles through alternatives.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Natural language</h3>
+          <p>Type <code>show status</code> or <code>create pull request</code> and they work exactly like slash commands.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Markdown rendering</h3>
+          <p>AI responses render with bold, italic, headings, lists, and syntax-highlighted code blocks, right in the terminal. No browser tab needed.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Per-session history</h3>
+          <p>Command history is saved per session, not globally. Arrow keys browse your session's commands without mixing in other workspaces.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Horizontal panning</h3>
+          <p>Long lines extend beyond terminal width onto a virtual canvas. Pan with <code>Alt+Left/Right</code> without reflowing.</p>
+        </div>
+        <div class="g-cell">
+          <h3>Built in Rust</h3>
+          <p>Fast startup, zero GC pauses, small binary. Tested on Fedora; runs on any Linux. Windows via WSL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-sm">
+      <div class="cta-band reveal">
+        <span class="section-label" style="display:block; margin-bottom: 1.25rem;">Ready?</span>
+        <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; margin-bottom: 1rem;">
+          See it in your terminal.
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-2); max-width: 420px; margin: 0 auto 2.5rem; line-height: 1.8;">
+          Build from source, run the wizard, and you'll have a full AI assistant in your repo in under five minutes.
+        </p>
+        <div style="display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap;">
+          <a href="install.html" class="btn-primary">Install orangu</a>
+          <a href="doc/getting-started.html" class="btn-secondary">Read the docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="footer-brand" href="index.html">ORANGU</a>
+  <ul class="footer-links">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a></li>
+  </ul>
+  <span class="footer-copy">GPL v3 · <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>

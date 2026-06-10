@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>orangu — Terminal AI Coding Environment</title>
+  <meta name="description" content="A workspace-aware terminal AI coding environment for OpenAI-compatible servers. Local, private, no internet required." />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+</head>
+<body>
+
+<!-- ─── Nav ─────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="index.html">ORANGU</a>
+  <ul class="nav-center">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="community.html">Community</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost" href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ─── Hero ─────────────────────────────── -->
+  <section class="hero">
+
+    <div class="hero-left">
+      <h1 class="hero-title">
+        AI coding that runs<br>on <em>your</em> machine.
+      </h1>
+
+      <p class="hero-subtitle">
+        orangu is an open-source terminal AI that reads your project, edits your files, and runs your Git workflow against any local LLM. No API keys, no telemetry, no data leaves your machine.
+      </p>
+
+      <div class="hero-cta">
+        <a href="doc/getting-started.html" class="btn-primary">
+          Get started
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div id="metaballs-bg"></div>
+    </div>
+
+  </section>
+
+  <!-- ─── Install strip ─────────────────────── -->
+  <div class="install-strip">
+    <div class="install-pill">
+      <span class="prompt">$</span>
+      <span class="cmd">cargo build --release &amp;&amp; ./target/release/orangu --init</span>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('cargo build --release && ./target/release/orangu --init');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
+    </div>
+  </div>
+
+  <!-- ─── What is orangu ────────────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="split">
+
+        <div>
+          <span class="section-label">What is orangu</span>
+          <div class="sep"></div>
+          <h2 class="section-title">AI coding,<br>without the cloud.</h2>
+          <p class="section-body">
+            orangu runs as a terminal client against any local LLM server. It reads your project files, understands your Git history, and executes commands on your behalf. No API keys. No data transmission.
+          </p>
+          <div class="feature-list">
+            <a href="doc/local-llm.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>OpenAI-compatible</h4>
+                  <p>Works with llama.cpp, Ollama, LM Studio, or any server that implements the OpenAI API.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/core-tools.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Workspace-aware tools</h4>
+                  <p>The model reads, edits, and navigates files in your project, within your workspace boundary.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/terminal.html#sessions">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Persistent sessions</h4>
+                  <p>Conversations are saved per workspace and branch. Resume exactly where you left off.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/building.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Built in Rust</h4>
+                  <p>Starts in milliseconds. Streams tokens live. Shows native throughput in the status bar.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="code-window">
+          <div class="code-window-bar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <div class="code-window-body">
+            <div><span class="c-d">## issue-85-prune...origin/issue-85-prune</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">review the diff and suggest improvements</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-t">Working @ 38.2 t/s (4s)</span></div>
+            <div>&nbsp;</div>
+            <div>The <span class="c-g">prune_sessions_output</span> function looks solid.</div>
+            <div>One suggestion: the <span class="c-a">OlderThan</span> match arm uses</div>
+            <div><span class="c-g">saturating_sub</span> correctly — consider</div>
+            <div>returning the removed session count</div>
+            <div>alongside the UUID list for better UX.</div>
+            <div>&nbsp;</div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">/commit "[#85] tool: /prune"</span></div>
+            <div><span class="c-t">committed on issue-85-prune</span></div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">/push</span></div>
+            <div><span class="c-t">pushed to origin/issue-85-prune</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Stats ─────────────────────────────── -->
+  <section class="section-sm reveal">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-cell">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Slash commands</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Cloud dependencies</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">0.6</span>
+          <span class="stat-label">Current version</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Git integration ───────────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="split reverse">
+
+        <div class="code-window">
+          <div class="code-window-bar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <div class="code-window-body">
+            <div><span class="c-a">&gt;</span> <span class="c-w">/status</span></div>
+            <div><span class="c-t">## feature/new-api...origin/feature/new-api</span></div>
+            <div><span class="c-g">M</span> src/config.rs</div>
+            <div><span class="c-g">M</span> src/bin/orangu/init.rs</div>
+            <div>&nbsp;</div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">/diff</span></div>
+            <div><span class="c-d">+ pub line_endings: String,</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">/squash</span></div>
+            <div><span class="c-t">squashed 3 commits into 1</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-a">&gt;</span> <span class="c-w">/pull_request</span></div>
+            <div><span class="c-t">PR #96 created</span></div>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">Git integration</span>
+          <div class="sep"></div>
+          <h2 class="section-title">Your entire Git workflow,<br>from one prompt.</h2>
+          <p class="section-body">
+            Commit, push, rebase, squash, review, and open pull requests, all without leaving the terminal. orangu understands your branch, your history, and your forge.
+          </p>
+          <div class="feature-list">
+            <a href="doc/git-tools.html#pull_request">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>GitHub and GitLab</h4>
+                  <p>Create PRs, close issues, add review comments via <code>gh</code> or <code>glab</code>.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/core-tools.html#review">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Full-screen review mode</h4>
+                  <p>Two-pane diff view with AI feedback, line annotations, and keyboard navigation.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/terminal.html#startup">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Auto-sync on startup</h4>
+                  <p>Fast-forwards your default branch against origin silently every session.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Documentation grid ───────────────── -->
+  <section class="section reveal">
+    <div class="container">
+
+      <div style="margin-bottom: 3rem;">
+        <span class="section-label">Documentation</span>
+        <div class="sep"></div>
+        <h2 class="section-title">The complete manual.</h2>
+      </div>
+
+      <div class="doc-grid-home">
+
+        <a href="doc/getting-started.html" class="doc-cell">
+          <span class="doc-cell-label">Guide</span>
+          <h3>Getting Started</h3>
+          <p>Start llama.cpp, run the wizard, launch the client, and issue your first commands.</p>
+        </a>
+
+        <a href="doc/configuration.html" class="doc-cell">
+          <span class="doc-cell-label">Reference</span>
+          <h3>Configuration</h3>
+          <p>Every option in <code>orangu.conf</code>: servers, models, timeouts, platform settings.</p>
+        </a>
+
+        <a href="doc/terminal.html" class="doc-cell">
+          <span class="doc-cell-label">Reference</span>
+          <h3>Terminal Interface</h3>
+          <p>Ghost-text hints, Tab completion, sessions, key bindings, and scrollback.</p>
+        </a>
+
+        <a href="doc/core-tools.html" class="doc-cell">
+          <span class="doc-cell-label">Commands</span>
+          <h3>Core Tools</h3>
+          <p><code>/help</code>, <code>/model</code>, <code>/session</code>, <code>/prune</code>, <code>/build</code>, <code>/review</code>, and more.</p>
+        </a>
+
+        <a href="doc/git-tools.html" class="doc-cell">
+          <span class="doc-cell-label">Commands</span>
+          <h3>Git Tools</h3>
+          <p>Commit, push, rebase, squash, branch, cherry-pick, stash, PR, and forge commands.</p>
+        </a>
+
+        <a href="doc/local-llm.html" class="doc-cell">
+          <span class="doc-cell-label">Guide</span>
+          <h3>Local LLM</h3>
+          <p>Recommended llama.cpp flags, example configuration, and tool-calling tips.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA band ──────────────────────────── -->
+  <section class="section">
+    <div class="container-sm">
+      <div class="cta-band reveal">
+        <span class="section-label" style="display:block; margin-bottom: 1.25rem;">Open source</span>
+        <h2 class="section-title" style="font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; margin-bottom: 1rem;">
+          No subscriptions. No telemetry.<br>No vendor lock-in.
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-2); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.8;">
+          Free software, built in the open. A fast, capable AI coding companion that runs entirely on your hardware.
+        </p>
+        <div style="display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap;">
+          <a href="doc/getting-started.html" class="btn-primary">Start building</a>
+          <a href="https://github.com/mnemosyne-systems/orangu/discussions" target="_blank" class="btn-secondary">Join the community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="footer-brand" href="index.html">ORANGU</a>
+  <ul class="footer-links">
+    <li><a href="doc/introduction.html">Introduction</a></li>
+    <li><a href="doc/getting-started.html">Getting Started</a></li>
+    <li><a href="doc/configuration.html">Configuration</a></li>
+    <li><a href="doc/git-tools.html">Git Tools</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/orangu" target="_blank">GitHub</a></li>
+  </ul>
+  <span class="footer-copy">GPL v3 · <a href="https://mnemosyne-systems.ai/" target="_blank">Mnemosyne Systems</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+(function () {
+  /* Props matching the React component */
+  var color          = '#c4803c';
+  var cursorBallColor= '#e8a060';
+  var speed          = 0.3;
+  var hoverSmoothness= 0.15;
+  var animationSize  = 30;
+  var ballCount      = 15;
+  var clumpFactor    = 1;
+  var cursorBallSize = 2;
+
+  var VERT = [
+    '#version 300 es',
+    'precision highp float;',
+    'layout(location = 0) in vec2 position;',
+    'void main() { gl_Position = vec4(position, 0.0, 1.0); }'
+  ].join('\n');
+
+  var FRAG = [
+    '#version 300 es',
+    'precision highp float;',
+    'uniform vec3 iResolution;',
+    'uniform float iTime;',
+    'uniform vec3 iMouse;',
+    'uniform vec3 iColor;',
+    'uniform vec3 iCursorColor;',
+    'uniform float iAnimationSize;',
+    'uniform int iBallCount;',
+    'uniform float iCursorBallSize;',
+    'uniform vec3 iMetaBalls[50];',
+    'out vec4 outColor;',
+    'float getMetaBallValue(vec2 c, float r, vec2 p) {',
+    '  vec2 d = p - c; float dist2 = dot(d, d); return (r * r) / dist2;',
+    '}',
+    'void main() {',
+    '  float scale = iAnimationSize / iResolution.y;',
+    '  vec2 coord  = (gl_FragCoord.xy - iResolution.xy * 0.5) * scale;',
+    '  vec2 mouseW = (iMouse.xy      - iResolution.xy * 0.5) * scale;',
+    '  float m1 = 0.0;',
+    '  for (int i = 0; i < 50; i++) {',
+    '    if (i >= iBallCount) break;',
+    '    m1 += getMetaBallValue(iMetaBalls[i].xy, iMetaBalls[i].z, coord);',
+    '  }',
+    '  float m2    = getMetaBallValue(mouseW, iCursorBallSize, coord);',
+    '  float total = m1 + m2;',
+    '  float f     = smoothstep(-1.0, 1.0, (total - 1.3) / min(1.0, fwidth(total)));',
+    '  vec3 cFinal = vec3(0.0);',
+    '  if (total > 0.0) { cFinal = iColor * (m1/total) + iCursorColor * (m2/total); }',
+    '  outColor = vec4(cFinal * f, f);',
+    '}'
+  ].join('\n');
+
+  function parseHex(h) {
+    var c = h.replace('#','');
+    return [parseInt(c.substring(0,2),16)/255, parseInt(c.substring(2,4),16)/255, parseInt(c.substring(4,6),16)/255];
+  }
+  function fract(x) { return x - Math.floor(x); }
+  function hash31(p) {
+    var r = [p*0.1031, p*0.103, p*0.0973].map(fract);
+    var d = r[0]*(r[1]+33.33) + r[1]*(r[2]+33.33) + r[2]*(r[0]+33.33);
+    return r.map(function(v){ return fract(v+d); });
+  }
+  function hash33(v) {
+    var p = [v[0]*0.1031, v[1]*0.103, v[2]*0.0973].map(fract);
+    var d = p[0]*(p[1]+33.33) + p[1]*(p[0]+33.33) + p[2]*(p[2]+33.33);
+    p = p.map(function(v){ return fract(v+d); });
+    return [fract((p[0]+p[1])*p[2]), fract((p[0]+p[0])*p[1]), fract((p[1]+p[0])*p[0])];
+  }
+
+  var container = document.getElementById('metaballs-bg');
+  if (!container) return;
+
+  var canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;display:block;';
+  container.appendChild(canvas);
+
+  var gl = canvas.getContext('webgl2', {alpha:true, premultipliedAlpha:false});
+  if (!gl) { console.warn('MetaBalls: WebGL2 not available'); return; }
+  gl.clearColor(0,0,0,0);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+  function compileShader(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error('MetaBalls shader error:', gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+  var vs = compileShader(gl.VERTEX_SHADER,   VERT);
+  var fs = compileShader(gl.FRAGMENT_SHADER, FRAG);
+  if (!vs || !fs) return;
+
+  var prog = gl.createProgram();
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.error('MetaBalls link error:', gl.getProgramInfoLog(prog));
+    return;
+  }
+  gl.useProgram(prog);
+
+  var vao = gl.createVertexArray();
+  gl.bindVertexArray(vao);
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);
+  gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+
+  var uTime  = gl.getUniformLocation(prog, 'iTime');
+  var uRes   = gl.getUniformLocation(prog, 'iResolution');
+  var uMouse = gl.getUniformLocation(prog, 'iMouse');
+  var uBalls = gl.getUniformLocation(prog, 'iMetaBalls[0]');
+  var uCount = gl.getUniformLocation(prog, 'iBallCount');
+  var uCurR  = gl.getUniformLocation(prog, 'iCursorBallSize');
+  var uAnim  = gl.getUniformLocation(prog, 'iAnimationSize');
+  var uCol   = gl.getUniformLocation(prog, 'iColor');
+  var uCCol  = gl.getUniformLocation(prog, 'iCursorColor');
+
+  var rgb1 = parseHex(color), rgb2 = parseHex(cursorBallColor);
+  gl.uniform3f(uCol,  rgb1[0], rgb1[1], rgb1[2]);
+  gl.uniform3f(uCCol, rgb2[0], rgb2[1], rgb2[2]);
+  gl.uniform1f(uAnim, animationSize);
+  gl.uniform1i(uCount, ballCount);
+  gl.uniform1f(uCurR, cursorBallSize);
+
+  var mbData = new Float32Array(50 * 3);
+
+  function resize() {
+    var w = container.clientWidth  || 520;
+    var h = container.clientHeight || 460;
+    canvas.width  = w;
+    canvas.height = h;
+    gl.viewport(0, 0, w, h);
+    gl.uniform3f(uRes, w, h, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize(); /* synchronous — layout is known at DOMContentLoaded */
+
+  var n = Math.min(ballCount, 50);
+  var ballParams = [];
+  for (var i = 0; i < n; i++) {
+    var h1 = hash31(i+1), h2 = hash33(h1);
+    ballParams.push({
+      st:      h1[0] * 2 * Math.PI,
+      dtF:     0.1*Math.PI + h1[1]*(0.4*Math.PI - 0.1*Math.PI),
+      bs:      5.0 + h1[1]*5.0,
+      toggle:  Math.floor(h2[0]*2),
+      radius:  0.5 + h2[2]*1.5
+    });
+  }
+
+  var mball = {x:0, y:0};
+  var pInside = false, pX = 0, pY = 0;
+
+  /* #metaballs-bg has pointer-events:none — listen on the parent .hero-right */
+  var evtTarget = container.parentElement || container;
+  evtTarget.addEventListener('pointermove', function(e) {
+    var r = evtTarget.getBoundingClientRect();
+    pX = ((e.clientX - r.left) / r.width)  * canvas.width;
+    pY = (1 - (e.clientY - r.top) / r.height) * canvas.height;
+  });
+  evtTarget.addEventListener('pointerenter', function() { pInside = true; });
+  evtTarget.addEventListener('pointerleave', function() { pInside = false; });
+
+  var startTime = performance.now();
+  function update(t) {
+    requestAnimationFrame(update);
+    var elapsed = (t - startTime) * 0.001;
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(uTime, elapsed);
+
+    for (var i = 0; i < n; i++) {
+      var p = ballParams[i];
+      var dt = elapsed * speed * p.dtF;
+      mbData[i*3]   = Math.cos(p.st + dt)               * p.bs * clumpFactor;
+      mbData[i*3+1] = Math.sin(p.st + dt + dt*p.toggle) * p.bs * clumpFactor;
+      mbData[i*3+2] = p.radius;
+    }
+    gl.uniform3fv(uBalls, mbData);
+
+    var tx, ty;
+    if (pInside) {
+      tx = pX; ty = pY;
+    } else {
+      tx = canvas.width*0.5  + Math.cos(elapsed*speed)*canvas.width*0.15;
+      ty = canvas.height*0.5 + Math.sin(elapsed*speed)*canvas.height*0.15;
+    }
+    mball.x += (tx - mball.x) * hoverSmoothness;
+    mball.y += (ty - mball.y) * hoverSmoothness;
+    gl.uniform3f(uMouse, mball.x, mball.y, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>
