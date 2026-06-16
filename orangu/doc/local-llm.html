@@ -16,6 +16,7 @@
     <li><a href="../features.html">Features</a></li>
     <li><a href="getting-started.html">Docs</a></li>
     <li><a href="../demo.html">Demo</a></li>
+    <li><a href="../releases.html">Releases</a></li>
     <li><a href="../community.html">Community</a></li>
     <li><a href="https://mnemosyne-systems.ai/products/orangu/" target="_blank">Support</a></li>
   </ul>
@@ -114,6 +115,29 @@ model = ggml-org/gemma-4-E4B-it-GGUF</code></pre>
       <strong>Context size matters:</strong> Tool-calling conversations accumulate tokens quickly. A context size of at least <code>32768</code> is recommended; <code>65536</code> or more is ideal for long sessions.
     </div>
 
+    <h2 id="coding-model">Coding model<a class="anchor" href="#coding-model">#</a></h2>
+
+    <p>For coding-focused sessions, launch <code>llama-server</code> with a coding model:</p>
+
+    <pre><code>llama-server -hf yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF \
+             --port 8100 \
+             --ctx-size 131072 \
+             -t 4 \
+             --webui-mcp-proxy \
+             --fit on \
+             --image-min-tokens 1024 \
+             --tools all</code></pre>
+
+    <p>or</p>
+
+    <pre><code>llama-server -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF \
+             --port 8100 \
+             --ctx-size 262144 \
+             -sm layer \
+             -t 4 \
+             --webui-mcp-proxy \
+             --fit on</code></pre>
+
     <div class="doc-footer-nav">
       <a href="usage-tools.html" class="prev">Usage Tools</a>
       <span></span>
@@ -143,5 +167,6 @@ model = ggml-org/gemma-4-E4B-it-GGUF</code></pre>
   })();
 </script>
 
+<script src="../copy-code.js"></script>
 </body>
 </html>
