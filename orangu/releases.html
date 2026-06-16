@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Releases — orangu</title>
+  <meta name="description" content="orangu release history: every version, its date, and the major features it shipped." />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
+  <style>
+    /* ─── Releases ─────────────────────────────── */
+    .rel-index {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 4rem;
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+    }
+    .rel-index a {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      padding: 0.35rem 0;
+      transition: color 0.15s;
+    }
+    .rel-index a:hover { color: var(--amber); }
+    .rel-index .ri-date { color: var(--text-3); font-size: 0.8rem; min-width: 120px; }
+    .rel-index .ri-ver { font-weight: 600; color: var(--text); }
+    .rel-index a:hover .ri-ver { color: var(--amber); }
+
+    .rel-entry { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .rel-entry:first-of-type { border-top: none; padding-top: 0; }
+    .rel-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .rel-ver {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem; font-weight: 700; color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .rel-date { font-size: 0.85rem; color: var(--text-3); }
+    .rel-badge {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--amber); background: var(--amber-soft); border: 1px solid var(--amber-line);
+      border-radius: 4px; padding: 0.25rem 0.5rem;
+    }
+    .rel-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; max-width: 720px; }
+    .rel-list li { font-size: 0.9rem; color: var(--text-2); line-height: 1.65; padding-left: 1.1rem; position: relative; }
+    .rel-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.62em;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--amber);
+    }
+    .rel-list strong { color: var(--text); font-weight: 600; }
+    .rel-more { color: var(--text-3); }
+  </style>
+</head>
+<body>
+
+<nav class="edge-glow-bar">
+  <a class="nav-logo" href="index.html">ORANGU</a>
+  <ul class="nav-center">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="demo.html">Demo</a></li>
+    <li><a href="releases.html" class="active">Releases</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/orangu/" target="_blank">Support</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost btn-nav-github" href="https://github.com/mnemosyne-systems/orangu" target="_blank" aria-label="GitHub"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <section class="hero" style="min-height: 26vh; padding-bottom: 1.5rem;">
+    <p class="hero-eyebrow">Releases</p>
+    <h1 class="hero-title">Release history.</h1>
+    <p class="hero-subtitle" style="margin-bottom: 0;">
+      Every orangu version, its date, and the major features it shipped.
+    </p>
+  </section>
+
+  <section class="section" style="padding-top: 1.5rem;">
+    <div class="container-sm">
+
+      <!-- Index -->
+      <div class="rel-index reveal">
+        <a href="#v0-7-0"><span class="ri-date">June 16, 2026</span><span class="ri-ver">orangu 0.7.0</span></a>
+        <a href="#v0-6-0"><span class="ri-date">June 9, 2026</span><span class="ri-ver">orangu 0.6.0</span></a>
+        <a href="#v0-5-0"><span class="ri-date">June 1, 2026</span><span class="ri-ver">orangu 0.5.0</span></a>
+        <a href="#v0-4-0"><span class="ri-date">May 25, 2026</span><span class="ri-ver">orangu 0.4.0</span></a>
+        <a href="#v0-3-0"><span class="ri-date">May 21, 2026</span><span class="ri-ver">orangu 0.3.0</span></a>
+        <a href="#v0-2-0"><span class="ri-date">May 17, 2026</span><span class="ri-ver">orangu 0.2.0</span></a>
+        <a href="#v0-1-0"><span class="ri-date">May 15, 2026</span><span class="ri-ver">orangu 0.1.0</span></a>
+      </div>
+
+      <!-- 0.7.0 -->
+      <article class="rel-entry reveal" id="v0-7-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.7.0</span>
+          <span class="rel-badge">Latest</span>
+          <span class="rel-date">June 16, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>AI code review</strong> — <code>/auto_review</code> reviews your whole branch or a single file, sorting findings into categories you can approve or reject.</li>
+          <li><strong>Bug bisection</strong> — <code>/bisect</code> drives <code>git bisect</code> from the prompt to find the commit that introduced a bug.</li>
+          <li><strong>One-line install</strong> — <code>install.sh</code> / <code>install.cmd</code> for Linux, macOS and Windows; no build step.</li>
+          <li><strong>Export to PDF</strong> — <code>/export</code> saves the console output or a review report as a polished PDF.</li>
+          <li><strong>Built-in manual</strong> — <code>/manual</code> opens the full manual, searchable and fully offline.</li>
+          <li class="rel-more">Also: <code>/get_comments</code>, <code>/pending</code>, and the <code>orangu -s</code> shell-completion flag.</li>
+        </ul>
+      </article>
+
+      <!-- 0.6.0 -->
+      <article class="rel-entry reveal" id="v0-6-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.6.0</span>
+          <span class="rel-date">June 9, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>GitLab support</strong> — drive GitLab through <code>glab</code>, alongside GitHub.</li>
+          <li><strong>Git stash</strong> — <code>/stash</code> push, pop, list and drop.</li>
+          <li><strong>Shell completions</strong> — <code>orangu -s</code> for bash, zsh and fish.</li>
+          <li><strong>Issue &amp; PR control</strong> — <code>/close</code> issues and PRs, and <code>/restart</code> in place.</li>
+          <li><strong>Session tooling</strong> — <code>/prune</code> old sessions and highlighted <code>/session</code> listings.</li>
+          <li class="rel-more">Also: <code>/log &lt;n&gt;</code>, <code>/build</code> output, opening files from <code>/review</code>, and <code>/comment</code> bodies from files.</li>
+        </ul>
+      </article>
+
+      <!-- 0.5.0 -->
+      <article class="rel-entry reveal" id="v0-5-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.5.0</span>
+          <span class="rel-date">June 1, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>Review mode</strong> — the full-screen, two-pane <code>/review</code> of your branch.</li>
+          <li><strong>Pull requests</strong> — <code>/pull_request</code> opens a PR for the current branch.</li>
+          <li><strong>GitHub comments</strong> — <code>/comment</code> posts comments to GitHub issues.</li>
+          <li><strong>Usage stats</strong> — <code>/usage</code> reports session time and tokens.</li>
+          <li><strong>Virtual terminal</strong> — a wide canvas with horizontal panning for long lines.</li>
+          <li class="rel-more">Also: support for unrecognized models and a customizable banner &amp; feedback layout.</li>
+        </ul>
+      </article>
+
+      <!-- 0.4.0 -->
+      <article class="rel-entry reveal" id="v0-4-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.4.0</span>
+          <span class="rel-date">May 25, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>Sessions</strong> — persistent sessions identified by UUID, with full resume.</li>
+          <li><strong>Auto-resume</strong> — branch-aware resumption on startup, with <code>/session</code> Tab completion and empty-session cleanup.</li>
+        </ul>
+      </article>
+
+      <!-- 0.3.0 -->
+      <article class="rel-entry reveal" id="v0-3-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.3.0</span>
+          <span class="rel-date">May 21, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>History editing</strong> — <code>/squash</code> branch commits into one, and <code>/amend</code> the last commit message.</li>
+          <li><strong>Pager integration</strong> — <code>delta</code> for <code>/diff</code> and <code>bat</code> for <code>/show_file</code> when installed.</li>
+        </ul>
+      </article>
+
+      <!-- 0.2.0 -->
+      <article class="rel-entry reveal" id="v0-2-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.2.0</span>
+          <span class="rel-date">May 17, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>Connection control</strong> — <code>/connect</code>, <code>/disconnect</code> and <code>/reload</code>.</li>
+          <li><strong>Markdown rendering</strong> — assistant responses are rendered with terminal styling.</li>
+          <li><strong>Live throughput</strong> — the <code>Working @ X.Y t/s</code> indicator while tokens stream.</li>
+          <li class="rel-more">Also: local comment lines that stay out of the conversation.</li>
+        </ul>
+      </article>
+
+      <!-- 0.1.0 -->
+      <article class="rel-entry reveal" id="v0-1-0">
+        <div class="rel-head">
+          <span class="rel-ver">orangu 0.1.0</span>
+          <span class="rel-date">May 15, 2026</span>
+        </div>
+        <ul class="rel-list">
+          <li><strong>Initial release</strong> — an interactive terminal client for local, OpenAI-compatible LLMs, with workspace-aware tools and streaming responses.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="edge-glow-bar">
+  <a class="footer-brand" href="index.html">ORANGU</a>
+  <ul class="footer-links">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/getting-started.html">Docs</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/orangu/releases" target="_blank">GitHub Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/orangu/" target="_blank">Commercial Support</a></li>
+  </ul>
+  <span class="footer-copy">GPL v3 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+</footer>
+
+<script>
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  /* Theme toggle */
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('ou-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('ou-theme') || 'dark');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script src="border-glow.js"></script>
+
+</body>
+</html>
