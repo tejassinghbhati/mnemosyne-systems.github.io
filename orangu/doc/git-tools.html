@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Git Tools — orangu</title>
   <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 640px); height: auto; display: block; border-radius: 6px; margin: 1.25rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-2); margin-top: -0.75rem; margin-bottom: 1rem; }
+  </style>
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
 </head>
 <body>
@@ -59,6 +63,7 @@
       <ul>
       <li><a href="#status">/status</a></li>
       <li><a href="#log">/log</a></li>
+      <li><a href="#show">/show</a></li>
       <li><a href="#diff">/diff</a></li>
       <li><a href="#grep">/grep</a></li>
       <li><a href="#add_file">/add_file</a></li>
@@ -124,10 +129,23 @@ git status</code></pre>
 show log
 git log
 git lg</code></pre>
+<h2 id="show">/show</h2>
+<p>Shows a single commit — its header (author, date, message) followed by its diff — by running <code>git show</code>.</p>
+<p>Without an argument it shows the current <code>HEAD</code>; pass a commit to show a specific one (any revision <code>git show</code> accepts: an abbreviated hash, a tag, <code>HEAD~2</code>, a branch name, …). Inside a Git repository it applies any configured non-interactive Git pager such as <code>delta</code>, exactly like <code>/diff</code>. Tab completion after <code>/show</code> (or the natural-language forms <code>git show</code> / <code>show commit</code>) offers the abbreviated hashes of the latest 25 commits on the current branch — newest first, so the most recent commit previews as the inline ghost.</p>
+<h3 id="examples-2">Examples</h3>
+<p>Show the latest commit:</p>
+<pre class="text"><code>/show</code></pre>
+<p>Show a specific commit:</p>
+<pre class="text"><code>/show aafd1cb</code></pre>
+<p>Natural-language forms:</p>
+<pre class="text"><code>git show
+show commit
+git show aafd1cb
+show commit aafd1cb</code></pre>
 <h2 id="diff">/diff</h2>
 <p>Shows a color unified diff.</p>
 <p>Without a branch it shows unstaged changes; with a branch it runs <code>git diff &lt;branch&gt;...HEAD</code> to show the commits on the current branch that are not yet in the specified branch. Inside a Git repository it applies any configured non-interactive Git pager such as <code>delta</code>. Tab completion after <code>/diff</code> (or the natural-language form <code>diff against</code>) offers local and remote branch names.</p>
-<h3 id="examples-2">Examples</h3>
+<h3 id="examples-3">Examples</h3>
 <p>Show unstaged changes:</p>
 <pre class="text"><code>/diff</code></pre>
 <p>Show what the current branch adds over <code>main</code>:</p>
@@ -143,7 +161,7 @@ git diff main</code></pre>
 <h2 id="grep">/grep</h2>
 <p>Searches the workspace for a pattern with <code>git grep</code>.</p>
 <p>It searches all tracked files and requires a Git repository. Output is piped through the configured non-interactive pager (<code>pager.grep</code>, then <code>core.pager</code>) when one is set — if <code>delta</code> is configured it will colorize and format the results. Exit code 1 (no matches) is handled gracefully. <code>gh</code> has no equivalent, so it always uses plain Git.</p>
-<h3 id="examples-3">Examples</h3>
+<h3 id="examples-4">Examples</h3>
 <pre class="text"><code>/grep TODO
 /grep &quot;fn main&quot;</code></pre>
 <p>Natural-language forms:</p>
@@ -153,7 +171,7 @@ git grep TODO</code></pre>
 <h2 id="add_file">/add_file</h2>
 <p>Stages a file or directory with <code>git add</code>.</p>
 <p>Tab completion after <code>/add_file</code> offers untracked directories first, then untracked files; already-tracked content is excluded.</p>
-<h3 id="examples-4">Examples</h3>
+<h3 id="examples-5">Examples</h3>
 <pre class="text"><code>/add_file README.md
 /add_file src/</code></pre>
 <p>Natural-language forms:</p>
@@ -163,7 +181,7 @@ git add README.md</code></pre>
 <h2 id="remove_file">/remove_file</h2>
 <p>Removes a file or directory from Git tracking with <code>git rm</code> (using <code>-r</code> for directories).</p>
 <p>Tab completion after <code>/remove_file</code> offers tracked directories first, then tracked files; untracked content is excluded.</p>
-<h3 id="examples-5">Examples</h3>
+<h3 id="examples-6">Examples</h3>
 <pre class="text"><code>/remove_file old.rs
 /remove_file legacy/</code></pre>
 <p>Natural-language forms:</p>
@@ -174,7 +192,7 @@ git rm old.rs</code></pre>
 <p>Renames or moves a tracked file with <code>git mv</code>.</p>
 <pre class="text"><code>/move_file &lt;source&gt; &lt;destination&gt;</code></pre>
 <p>Tab completion for the first argument offers tracked directories first, then tracked files; the second argument completes from all workspace paths.</p>
-<h3 id="examples-6">Examples</h3>
+<h3 id="examples-7">Examples</h3>
 <pre class="text"><code>/move_file old.rs new.rs</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>move old.rs new.rs
@@ -184,7 +202,7 @@ git mv old.rs new.rs</code></pre>
 <p>Discards working-tree changes to a file with <code>git restore &lt;file&gt;</code>, or unstages it with <code>--staged</code>.</p>
 <pre class="text"><code>/restore [--staged] &lt;file&gt;</code></pre>
 <p>With <code>--staged</code> it runs <code>git restore --staged &lt;file&gt;</code> to unstage the file without changing its contents. <code>gh</code> has no equivalent, so it always uses plain Git.</p>
-<h3 id="examples-7">Examples</h3>
+<h3 id="examples-8">Examples</h3>
 <p>Discard local changes to a file:</p>
 <pre class="text"><code>/restore src/main.rs</code></pre>
 <p>Unstage a file:</p>
@@ -194,7 +212,7 @@ git mv old.rs new.rs</code></pre>
 <h2 id="commit">/commit</h2>
 <p>Commits all tracked changes with <code>git commit -a -m &lt;message&gt;</code>.</p>
 <p><code>gh</code> has no equivalent, so it always uses plain Git. The message may be bare or quoted; quote it when it contains spaces or shell-significant characters such as the <code>[#42]</code> issue prefix.</p>
-<h3 id="examples-8">Examples</h3>
+<h3 id="examples-9">Examples</h3>
 <pre class="text"><code>/commit Fix the parser
 /commit &quot;[#42] Add the new feature&quot;</code></pre>
 <p>Natural-language forms:</p>
@@ -204,7 +222,7 @@ git commit -m &quot;Fix the bug&quot;</code></pre>
 <h2 id="amend">/amend</h2>
 <p>Rewrites the last commit message with <code>git commit --amend -m &lt;message&gt;</code>.</p>
 <p>The message is mandatory and may be bare or quoted. <code>gh</code> has no equivalent, so it always uses plain Git.</p>
-<h3 id="examples-9">Examples</h3>
+<h3 id="examples-10">Examples</h3>
 <pre class="text"><code>/amend Fix the parser
 /amend &quot;[#42] Add the new feature&quot;</code></pre>
 <p>Natural-language forms:</p>
@@ -216,7 +234,7 @@ git commit --amend -m &quot;Fix the bug&quot;</code></pre>
 <h2 id="squash">/squash</h2>
 <p>Squashes all commits on the current branch into a single commit, reusing the oldest commit's message.</p>
 <p>The branch is compared against <code>origin/main</code>, <code>origin/master</code>, <code>main</code>, or <code>master</code>, tried in that order. At least two commits are required, and squashing on <code>main</code> or <code>master</code> is blocked. <code>gh</code> has no equivalent, so it always uses plain Git.</p>
-<h3 id="examples-10">Examples</h3>
+<h3 id="examples-11">Examples</h3>
 <pre class="text"><code>/squash</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>squash
@@ -232,7 +250,7 @@ git squash</code></pre>
 <li><code>/stash drop</code> discards the most recent stash entry with <code>git stash drop</code>.</li>
 </ul>
 <p><code>gh</code> has no stash equivalent, so all four operations always use plain Git. Running <code>/stash</code> with a clean working tree produces an error from Git.</p>
-<h3 id="examples-11">Examples</h3>
+<h3 id="examples-12">Examples</h3>
 <pre class="text"><code>/stash
 /stash pop
 /stash list
@@ -254,7 +272,7 @@ drop stash</code></pre>
 <li><code>/bisect log</code> — prints the log of all good/bad markings made so far.</li>
 </ul>
 <p>All subcommands run plain <code>git bisect &lt;sub&gt;</code>; there is no <code>gh</code> equivalent.</p>
-<h3 id="examples-12">Examples</h3>
+<h3 id="examples-13">Examples</h3>
 <pre class="text"><code>/bisect start
 /bisect bad
 /bisect good abc1234
@@ -286,7 +304,7 @@ bisect</code></pre>
 <li><code>-d &lt;name&gt;</code> — deletes the branch (<code>git branch -D</code>), blocked on <code>main</code> and <code>master</code>.</li>
 </ul>
 <p>Tab completion after <code>/branch</code> offers local branch names. <code>gh</code> has no equivalent, so all operations always use plain Git.</p>
-<h3 id="examples-13">Examples</h3>
+<h3 id="examples-14">Examples</h3>
 <pre class="text"><code>/branch
 /branch -a
 /branch feature/login
@@ -305,7 +323,7 @@ delete branch feature/old</code></pre>
 <h2 id="fetch">/fetch</h2>
 <p>Fetches from a remote with <code>git fetch &lt;remote&gt;</code>.</p>
 <p><code>gh</code>/<code>glab</code> have no fetch that improves on Git, so it always uses plain Git. With no argument it fetches from the first configured remote (<code>origin</code> is floated to the front of <code>git remote</code>, so it is the default when present); pass a remote name to fetch from a specific one. Tab completion after <code>/fetch</code> (or the natural-language forms <code>fetch</code> / <code>git fetch</code>) offers the configured remotes, with the default offered first and previewed as the grey inline ghost, so <code>/fetch u</code> then Tab completes to <code>/fetch upstream</code>. It errors when the repository has no remotes or the named remote is unknown.</p>
-<h3 id="examples-14">Examples</h3>
+<h3 id="examples-15">Examples</h3>
 <pre class="text"><code>/fetch
 /fetch upstream</code></pre>
 <p>Natural-language forms:</p>
@@ -316,7 +334,7 @@ git fetch upstream</code></pre>
 <h2 id="merge">/merge</h2>
 <p>Merges a branch into the current branch.</p>
 <p>If <code>gh</code> is installed it uses <code>gh pr merge --merge</code>; otherwise it uses <code>git merge</code>.</p>
-<h3 id="examples-15">Examples</h3>
+<h3 id="examples-16">Examples</h3>
 <pre class="text"><code>/merge feature/login</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>merge feature/login
@@ -331,7 +349,7 @@ git merge feature/login</code></pre>
 <li>A bare remote name such as <code>origin</code> resolves the remote's default branch (from <code>refs/remotes/&lt;remote&gt;/HEAD</code>, falling back to <code>main</code> then <code>master</code>) and rebases onto it, refreshing it first.</li>
 </ul>
 <p>Tab completion after <code>/rebase</code> (or the natural-language forms <code>rebase</code> / <code>git rebase</code>) offers, in order, local branch names (from <code>git branch</code>), then the configured remotes (from <code>git remote</code>, with <code>origin</code> floated to the front), then the remote-tracking branches (from <code>git branch --all</code>, e.g. <code>origin/main</code>). The first local branch is previewed as the grey inline ghost.</p>
-<h3 id="examples-16">Examples</h3>
+<h3 id="examples-17">Examples</h3>
 <pre class="text"><code>/rebase
 /rebase develop
 /rebase origin/main
@@ -344,7 +362,7 @@ git rebase origin/main</code></pre>
 <h2 id="cherry_pick">/cherry_pick</h2>
 <p>Cherry-picks a commit onto the current branch with <code>git cherry-pick</code>.</p>
 <p><code>gh</code> has no equivalent, so it always uses plain Git. Tab completion offers abbreviated commit hashes from the default branch (<code>origin/main</code>, <code>origin/master</code>, <code>main</code>, or <code>master</code>, tried in that order).</p>
-<h3 id="examples-17">Examples</h3>
+<h3 id="examples-18">Examples</h3>
 <pre class="text"><code>/cherry_pick abc1234</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>cherry pick abc1234
@@ -353,7 +371,7 @@ git cherry-pick abc1234</code></pre>
 <h2 id="init_repo">/init_repo</h2>
 <p>Initializes a Git repository in the workspace with <code>git init</code>.</p>
 <p>It works both inside and outside an existing Git repository — reinitializing an existing repo is safe. <code>gh</code> has no equivalent, so it always uses plain Git.</p>
-<h3 id="examples-18">Examples</h3>
+<h3 id="examples-19">Examples</h3>
 <pre class="text"><code>/init_repo</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>init
@@ -362,7 +380,7 @@ git init</code></pre>
 <h2 id="push">/push</h2>
 <p>Pushes the current branch to <code>origin</code> with <code>git push origin &lt;branch&gt;</code>.</p>
 <p><code>gh</code> has no equivalent, so it always uses plain Git. <code>--force</code> (or <code>-f</code>, or <code>force</code>) runs <code>git push -f origin &lt;branch&gt;</code> but is blocked on <code>main</code> and <code>master</code> to prevent accidental history rewrites. After a successful push it compares the branch against the base branch and, when the branch is behind the base or has more than one commit ahead, reports that the branch needs a <code>/rebase</code> and/or <code>/squash</code>.</p>
-<h3 id="examples-19">Examples</h3>
+<h3 id="examples-20">Examples</h3>
 <pre class="text"><code>/push
 /push --force</code></pre>
 <p>Natural-language forms:</p>
@@ -374,7 +392,7 @@ push --force</code></pre>
 <p>Checks out a GitHub pull request on a dedicated branch.</p>
 <pre class="text"><code>/pull &lt;number&gt;</code></pre>
 <p>If <code>gh</code> is installed it uses <code>gh pr checkout</code>; otherwise it fetches the pull request directly from <code>origin</code>. After the checkout it compares the branch against the base branch and, when the branch is behind the base or has more than one commit ahead, reports that the pull request needs a <code>/rebase</code> and/or <code>/squash</code>.</p>
-<h3 id="examples-20">Examples</h3>
+<h3 id="examples-21">Examples</h3>
 <pre class="text"><code>/pull 58</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>pull 58
@@ -385,7 +403,7 @@ pull #58</code></pre>
 <p>Creates a pull request for the current branch. Requires the <code>gh</code> CLI.</p>
 <p>Before creating the pull request it runs several pre-flight checks: it blocks on <code>main</code> and <code>master</code>, requires at least one commit ahead of the base branch, and blocks when the branch is behind the base and/or has more than one commit ahead — reporting the combined <code>/rebase</code> and/or <code>/squash</code> hint. When all checks pass it pushes the branch with <code>--set-upstream origin</code> and calls <code>gh pr create</code> with the title and body derived from the single commit message.</p>
 <p>The checks can be bypassed by setting <code>auto_rebase = on</code> or <code>auto_squash = on</code> in the <code>[orangu]</code> configuration section, which triggers the corresponding fix automatically before continuing.</p>
-<h3 id="examples-21">Examples</h3>
+<h3 id="examples-22">Examples</h3>
 <pre class="text"><code>/pull_request</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>pull request
@@ -405,7 +423,7 @@ new pr</code></pre>
 <h3 id="submitting-a-review-as-the-comment">Submitting a review as the comment</h3>
 <p><code>with review</code> posts the last <code>/review</code> summary of this session as the comment body, and <code>with auto review</code> posts the last <code>/auto_review</code> report — the same Markdown that is copied to the clipboard on exit, ready for an issue or pull request. The keywords are matched case-insensitively against the whole argument, so a template file whose name merely starts with <code>w</code> (or even <code>with</code>) is still treated as a filename; only the exact phrases are keywords. When no matching review has been run yet, the command reports an error pointing at <code>/review</code> or <code>/auto_review</code>.</p>
 <p>Tab completion (and the inline grey ghost) after <code>/comment &lt;number&gt;</code> offers the template files from <code>~/.orangu/comments/</code> first — an existing template keeps its priority — followed by the report keywords. Each keyword is only offered once the matching review has actually been run in the session: before any <code>/review</code>, <code>with review</code> is ignored by completion (and likewise <code>with auto review</code> before any <code>/auto_review</code>), so the hints never suggest a report that does not exist. Typing <code>with</code> narrows the hint to the available keywords.</p>
-<h3 id="examples-22">Examples</h3>
+<h3 id="examples-23">Examples</h3>
 <p>Inline comment body:</p>
 <pre class="text"><code>/comment 51 &quot;Thanks, merged.&quot;</code></pre>
 <p>Comment body from a Markdown file in <code>~/.orangu/comments/</code>:</p>
@@ -427,7 +445,7 @@ comment on 48 with auto review</code></pre>
 <li><code>-i &lt;number&gt;</code> runs <code>gh issue close &lt;number&gt;</code> (or <code>glab issue close &lt;number&gt;</code>) to close an issue.</li>
 <li><code>-p &lt;number&gt;</code> runs <code>gh pr close &lt;number&gt;</code> (or <code>glab mr close &lt;number&gt;</code>) to close a pull request or merge request.</li>
 </ul>
-<h3 id="examples-23">Examples</h3>
+<h3 id="examples-24">Examples</h3>
 <pre class="text"><code>/close -i 51
 /close -p 58</code></pre>
 <p>Natural-language forms:</p>
@@ -454,7 +472,7 @@ close pr 58</code></pre>
 <li>the <strong>value</strong> completes against the repository's candidates for that subcommand — collaborators for <code>reviewer</code>, assignable users for <code>assignee</code>, and label names for <code>label</code>.</li>
 </ul>
 <p>The candidate lists are fetched once at startup (via <code>gh</code>/<code>glab</code>) and cached, so completion never shells out on a keystroke. The <code>&lt;number&gt;</code> is typed directly (no completion). So <code>/issue re&lt;TAB&gt; 114 je&lt;TAB&gt;</code> expands to <code>/issue reviewer 114 jesperpedersen</code>.</p>
-<h3 id="examples-24">Examples</h3>
+<h3 id="examples-25">Examples</h3>
 <pre class="text"><code>/issue reviewer 114 jesperpedersen
 /issue assignee 51 alice
 /issue label 51 needs triage</code></pre>
@@ -472,7 +490,7 @@ close pr 58</code></pre>
 
 ● 2026-06-02 08:00:00 bob
   Merged.</code></pre>
-<h3 id="examples-25">Examples</h3>
+<h3 id="examples-26">Examples</h3>
 <pre class="text"><code>/get_comments -i 51
 /get_comments -p 58</code></pre>
 <p>Natural-language forms (after <code>get comments for</code> the inline ghost hint offers <code>issue</code> and <code>pull request</code>; Tab accepts, Shift+Tab cycles):</p>

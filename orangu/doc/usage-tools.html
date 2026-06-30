@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Usage Tools — orangu</title>
   <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 640px); height: auto; display: block; border-radius: 6px; margin: 1.25rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-2); margin-top: -0.75rem; margin-bottom: 1rem; }
+  </style>
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
 </head>
 <body>
@@ -94,8 +98,11 @@ open manual</code></pre>
 <ul>
 <li>total application time,</li>
 <li>total time spent waiting for LLM responses,</li>
-<li>total tokens generated (counted with the bundled tokenizer), and</li>
-<li>average tokens per second.</li>
+<li>total tool execution time,</li>
+<li>total tokens generated (counted with the bundled tokenizer),</li>
+<li>average tokens per second,</li>
+<li>context cache statistics (reads, hits, misses, rate, bytes saved), and</li>
+<li>context compression statistics (lines saved, patterns applied).</li>
 </ul>
 <h3 id="examples-1">Examples</h3>
 <pre class="text"><code>/usage</code></pre>

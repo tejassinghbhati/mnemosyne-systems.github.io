@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quick Start — orangu</title>
   <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 640px); height: auto; display: block; border-radius: 6px; margin: 1.25rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-2); margin-top: -0.75rem; margin-bottom: 1rem; }
+  </style>
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
 </head>
 <body>
@@ -146,6 +150,8 @@
 /init_repo
 /log
 /log 5
+/show
+/show aafd1cb
 /merge feature/foo
 /move_file old.rs new.rs
 /pull 42
@@ -176,7 +182,7 @@
 <pre class="text"><code>export review              # write the report to a PDF in the workspace root
 comment on 42 with auto review  # post it on GitHub/GitLab issue/PR #42</code></pre>
 <p>By default the tools operate on the current directory. Use <code>--workspace /path/to/project</code> to point <strong>orangu</strong> at another tree.</p>
-<p>The startup flags have short forms: <code>-c</code> for <code>--config</code>, <code>-w</code> for <code>--workspace</code>, <code>-r</code> for <code>--resume</code>, <code>-i</code> for <code>--init</code>, and <code>-a</code> for <code>--all</code> (reopen the tabs from the previous run).</p>
+<p>The startup flags have short forms: <code>-c</code> for <code>--config</code>, <code>-w</code> for <code>--workspace</code>, <code>-r</code> for <code>--resume</code>, <code>-a</code> for <code>--all</code> (reopen the tabs from the previous run), <code>-l</code> for <code>--list</code> (print every stored session as a table and exit), and <code>-i</code> for <code>--init</code>.</p>
 <p><strong>orangu</strong> automatically resumes an existing session when you return to the same workspace and Git branch. When a previous session is found, the status bar shows:</p>
 <pre class="text"><code>Resuming session 550e8400-e29b-41d4-a716-446655440000</code></pre>
 <p>for five seconds or until the first command is run.</p>

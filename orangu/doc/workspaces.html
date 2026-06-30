@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Workspaces — orangu</title>
   <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 640px); height: auto; display: block; border-radius: 6px; margin: 1.25rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-2); margin-top: -0.75rem; margin-bottom: 1rem; }
+  </style>
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
 </head>
 <body>
@@ -58,7 +62,7 @@
       <li><a href="#workspaces">Workspaces</a>
       <ul>
       <li><a href="#workspace">/workspace</a></li>
-      <li><a href="#create-workspace-and-delete-workspace">/create workspace and /delete workspace</a></li>
+      <li><a href="#create_workspace-and-delete_workspace">/create_workspace and /delete_workspace</a></li>
       <li><a href="#key-bindings">Key bindings</a></li>
       <li><a href="#tab-placement">Tab placement</a></li>
       </ul></li>
@@ -78,7 +82,7 @@
   <main class="doc-content">
 <h1 id="workspaces">Workspaces</h1>
 <p>A <em>workspace</em> is the project directory orangu is open on. It is the directory the model's tools read from and write to, the directory whose Git branch drives the prompt and the Git and review commands, and the directory a session belongs to. By default the workspace is the directory you launched orangu in; pass <code>--workspace &lt;path&gt;</code> (or <code>-w &lt;path&gt;</code>) at startup to begin somewhere else.</p>
-<p>Several workspaces can be open at once as tabs in a single orangu, instead of running one instance per project. Each tab is its own session — its own conversation, scrollback, pending queue and command history — so switching tabs returns to exactly where you left that workspace, or resumes the session it last had. A tab bar shows the open tabs with the active one in bold, placed where the <code>workspaces</code> setting puts it (see Tab placement); it appears once more than one workspace is open. When <code>feedback</code> is on, a colored dot precedes each tab number: green for a valid tab, red when the tab's branch has been deleted or changed underneath it, and a blinking white dot on the active tab while it is processing a response. See the Sessions section of the Terminal interface chapter for how sessions are matched to a workspace and branch.</p>
+<p>Several workspaces can be open at once as tabs in a single orangu, instead of running one instance per project. Each tab is its own session — its own conversation, scrollback, pending queue and command history — and its own active server and model. A <code>/server</code> or <code>/model</code> command in one tab does not affect any other tab. The chosen server and model are saved to the session's settings file automatically, so they are restored the next time that session is resumed. Switching tabs returns to exactly where you left that workspace, or resumes the session it last had. A tab bar shows the open tabs with the active one in bold, placed where the <code>workspaces</code> setting puts it (see Tab placement); it appears once more than one workspace is open. When <code>feedback</code> is on, a colored dot precedes each tab number: green for a valid tab, red when the tab's branch has been deleted or changed underneath it, and a blinking white dot on the active tab while it is processing a response. See the Sessions section of the Terminal interface chapter for how sessions are matched to a workspace and branch.</p>
 <p>Pass <code>-a</code> or <code>--all</code> at startup to reopen the tabs that were open at the end of the previous run. Their workspace directories and auto-resumed sessions are restored behind the initial tab.</p>
 <p>You move between tabs with the <code>/workspace</code> command or the workspace key bindings, and choose where the tab bar sits with the <code>workspaces</code> configuration key — both are described below.</p>
 <h2 id="workspace">/workspace</h2>
@@ -96,13 +100,13 @@
 switch workspace
 workspace 1
 switch workspace ~/projects/orangu</code></pre>
-<h2 id="create-workspace-and-delete-workspace">/create workspace and /delete workspace</h2>
-<p><code>/create workspace &lt;dir&gt;</code> opens a new tab on an existing directory — the slash-command equivalent of <code>Alt+Insert</code> followed by <code>/workspace &lt;dir&gt;</code>. The directory must already exist; orangu resolves it, opens a tab on it (resuming the matching session there, or starting a fresh one), and switches to it. A missing or non-existent directory is reported as an error.</p>
-<p><code>/delete workspace</code> closes the active tab — the slash-command equivalent of <code>Alt+Delete</code>. The remaining tabs are renumbered and focus moves to a neighbour. The last open tab is never closed; use <code>/quit</code> to leave orangu.</p>
+<h2 id="create_workspace-and-delete_workspace">/create_workspace and /delete_workspace</h2>
+<p><code>/create_workspace &lt;dir&gt;</code> opens a new tab on an existing directory — the slash-command equivalent of <code>Alt+Insert</code> followed by <code>/workspace &lt;dir&gt;</code>. The directory must already exist; orangu resolves it, opens a tab on it (resuming the matching session there, or starting a fresh one), and switches to it. A missing or non-existent directory is reported as an error.</p>
+<p><code>/delete_workspace</code> closes the active tab — the slash-command equivalent of <code>Alt+Delete</code>. The remaining tabs are renumbered and focus moves to a neighbour. The last open tab is never closed; use <code>/quit</code> to leave orangu.</p>
 <p>Both are handled locally and work regardless of server or model state.</p>
 <h3 id="examples-1">Examples</h3>
-<pre class="text"><code>/create workspace ~/projects/orangu
-/delete workspace</code></pre>
+<pre class="text"><code>/create_workspace ~/projects/orangu
+/delete_workspace</code></pre>
 <p>Natural-language forms:</p>
 <pre class="text"><code>create workspace ~/projects/orangu
 delete workspace</code></pre>

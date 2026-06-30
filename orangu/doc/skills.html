@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skills — orangu</title>
   <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 640px); height: auto; display: block; border-radius: 6px; margin: 1.25rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-2); margin-top: -0.75rem; margin-bottom: 1rem; }
+  </style>
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ou-theme') || 'dark');</script>
 </head>
 <body>
@@ -62,6 +66,7 @@
       <li><a href="#skill-without-code">Skill without code</a></li>
       <li><a href="#skill-with-helper-files">Skill with helper files</a></li>
       <li><a href="#compiled-helper-code">Compiled helper code</a></li>
+      <li><a href="#workspace-memory-agents.md">Workspace Memory (AGENTS.md)</a></li>
       </ul></li>
       </ul>
     </div>
@@ -155,6 +160,9 @@ Then run it against the user-provided log path:
 <div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> .agents/skills/parser/helper.c <span class="at">-o</span> .agents/skills/parser/parser</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">javac</span> .agents/skills/parser/Helper.java <span class="at">-d</span> .agents/skills/parser/classes</span></code></pre></div>
 <p>For project skills, prefer storing helper code under <code>&lt;workspace&gt;/.agents/skills</code> so workspace tools can inspect and edit it like normal project files. User skills under <code>~/.orangu/skills</code> or <code>~/.agents/skills</code> are still useful for portable instructions, but project-local helper code is easier for the model to build, test, and modify.</p>
+<h2 id="workspace-memory-agents.md">Workspace Memory (AGENTS.md)</h2>
+<p>In addition to explicit <code>SKILL.md</code> commands, orangu supports global and workspace-level memory injection using <code>AGENTS.md</code> files.</p>
+<p>If you create a file at <code>~/.orangu/AGENTS.md</code> or in your project root at <code>&lt;workspace&gt;/AGENTS.md</code>, orangu will automatically read the contents and inject them as persistent rules into every chat and code review session. This is the ideal place to document project-wide architectural decisions, language preferences, or rules that should always be active without needing to be explicitly invoked like a skill.</p>
   </main>
 </div>
 
