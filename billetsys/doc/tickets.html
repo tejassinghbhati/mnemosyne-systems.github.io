@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tickets — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html" class="active">Tickets</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#tickets" id="toc-tickets">Tickets</a>
+      <ul>
+      <li><a href="#purpose" id="toc-purpose">Purpose</a></li>
+      <li><a href="#core-information" id="toc-core-information">Core
+      information</a></li>
+      <li><a href="#lifecycle" id="toc-lifecycle">Lifecycle</a></li>
+      <li><a href="#status-and-ownership"
+      id="toc-status-and-ownership">Status and ownership</a></li>
+      <li><a href="#ticket-lists" id="toc-ticket-lists">Ticket lists</a>
+      <ul>
+      <li><a href="#pagination-and-page-size"
+      id="toc-pagination-and-page-size">Pagination and page
+      size</a></li>
+      <li><a href="#column-sorting" id="toc-column-sorting">Column
+      sorting</a></li>
+      <li><a href="#keyboard-shortcuts"
+      id="toc-keyboard-shortcuts">Keyboard shortcuts</a></li>
+      </ul></li>
+      <li><a href="#ticket-search" id="toc-ticket-search">Ticket
+      search</a></li>
+      <li><a href="#detail-view" id="toc-detail-view">Detail
+      view</a></li>
+      <li><a href="#ratings-and-feedback"
+      id="toc-ratings-and-feedback">Ratings and feedback</a>
+      <ul>
+      <li><a href="#who-can-submit-a-rating"
+      id="toc-who-can-submit-a-rating">Who can submit a rating</a></li>
+      <li><a href="#who-can-view-a-rating"
+      id="toc-who-can-view-a-rating">Who can view a rating</a></li>
+      <li><a href="#auto-close" id="toc-auto-close">Auto-close</a></li>
+      </ul></li>
+      <li><a href="#external-tracking"
+      id="toc-external-tracking">External tracking</a></li>
+      <li><a href="#export" id="toc-export">Export</a></li>
+      <li><a href="#role-perspective" id="toc-role-perspective">Role
+      perspective</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="tickets">Tickets</h1>
+<p>The <strong>Ticket</strong> is the central object in billetsys. It
+represents a support case from the first report through investigation,
+communication, and final resolution.</p>
+<figure>
+<img src="images/11-tickets.png" style="width:100.0%"
+alt="Open tickets view" />
+<figcaption aria-hidden="true">Open tickets view</figcaption>
+</figure>
+<h2 id="purpose">Purpose</h2>
+<p>Tickets bring together the information needed to manage a case in one
+place. Instead of splitting status, ownership, communication, and
+attachments across different tools, billetsys keeps them connected to
+the same record.</p>
+<h2 id="core-information">Core information</h2>
+<p>A ticket can hold the main context for a support issue,
+including:</p>
+<ul>
+<li>Ticket identifier</li>
+<li>Ticket title</li>
+<li>Company</li>
+<li>Requester</li>
+<li>Status</li>
+<li>Category</li>
+<li>Entitlement</li>
+<li>Affected and resolved versions</li>
+<li>Support and TAM assignments</li>
+<li>External contributors</li>
+<li>External issue reference</li>
+<li>Ticket rating and feedback</li>
+<li>Message history</li>
+</ul>
+<p>This allows teams to understand both the current state of a case and
+how it reached that state.</p>
+<p>The entity model stores the ticket identifier and the ticket title
+separately. The identifier is the generated case reference used for
+routing, exports, and cross-system references, while the title is the
+human-written summary entered when the ticket is created.</p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>Tickets move through a lifecycle that begins when an issue is
+reported and ends when the case is resolved and closed.</p>
+<p>A typical flow looks like this:</p>
+<ul>
+<li>A ticket is created</li>
+<li>The ticket is reviewed and assigned</li>
+<li>Support and customer communication continues in the message
+thread</li>
+<li>Status changes reflect current progress</li>
+<li>The ticket reaches “Resolved” state</li>
+<li>The user provides an optional 10-star rating and feedback
+comment</li>
+<li>A resolved case is eventually closed, either manually or
+automatically after a configured inactivity period (default is 7
+days)</li>
+</ul>
+<p>This lifecycle gives both customer-facing roles and operational roles
+a shared view of progress.</p>
+<h2 id="status-and-ownership">Status and ownership</h2>
+<p>Status is one of the most important parts of the ticket workflow. It
+helps users understand whether a case is waiting for action, already
+assigned, actively being worked on, or completed. A special hidden
+status, “Waiting for External Feedback”, is available to Support and TAM
+roles to indicate they are waiting on an external contributor; this
+status is automatically masked as “In Progress” for regular Users and
+Superusers to keep internal workflows private.</p>
+<p>Ownership matters just as much. Support assignments and TAM
+involvement make it clear who is currently responsible for handling the
+case and who is following the customer relationship. Users, Superusers,
+TAMs, and Support roles can also add “External Contributors” by their
+email addresses. This allows tracking the involvement of external
+engineers or documentation staff who don’t need a formal account in
+billetsys. Standard Users, Superusers, and TAMs can manage external
+contributors for their assigned companies, while Support can manage them
+globally.</p>
+<h2 id="ticket-lists">Ticket lists</h2>
+<p>Billetsys provides ticket lists that help each role focus on the
+cases relevant to them. Depending on role, the interface can
+emphasize:</p>
+<ul>
+<li>Personal tickets</li>
+<li>Company-scoped tickets</li>
+<li>Assigned work</li>
+<li>Open work</li>
+<li>Closed work</li>
+</ul>
+<p>This makes the ticket area useful both for individual follow-up and
+for operational queue management.</p>
+<h3 id="pagination-and-page-size">Pagination and page size</h3>
+<p>Ticket lists are paginated. The default page size is
+<strong>10</strong>, but it can be changed per-page using the
+rows-per-page selector at the bottom of any list. Available options are
+10, 25, and 50.</p>
+<p>Users can set a personal default in their <strong>Profile</strong>
+under <em>Default rows</em>. This preference applies to all paginated
+lists across the application. The per-page selector overrides this
+default for the current view.</p>
+<p>The current page, page size, sort column, and direction are preserved
+in the browser URL. This means paginated views are
+<strong>bookmarkable</strong> — sharing or reopening a URL returns to
+the exact same view state.</p>
+<h3 id="column-sorting">Column sorting</h3>
+<p>Ticket list columns can be sorted by clicking the column header.
+Clicking a column that is already the active sort toggles between
+ascending (▲) and descending (▼) order. Clicking a different column
+starts ascending sort on that column.</p>
+<p>Sortable columns include: <strong>Name</strong>,
+<strong>Title</strong>, <strong>Date</strong>, <strong>Status</strong>,
+<strong>Category</strong>, <strong>Company</strong>,
+<strong>Entitlement</strong>, <strong>Level</strong>, and
+<strong>Affects</strong>.</p>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+<p>For roles that use the ticket queues, these keyboard shortcuts are
+available from the application header:</p>
+<ul>
+<li><code>Ctrl+A</code> opens <strong>Active tickets</strong></li>
+<li><code>Ctrl+O</code> opens <strong>Open tickets</strong></li>
+<li><code>Ctrl+C</code> opens <strong>Closed tickets</strong></li>
+<li><code>Ctrl++</code> opens <strong>Create ticket</strong></li>
+</ul>
+<p>When a ticket queue view is open, <code>Alt+1</code> through
+<code>Alt+9</code> open the first through ninth ticket in the currently
+visible list order, and <code>Alt+0</code> opens the tenth ticket.</p>
+<p>On the ticket detail page, the following shortcuts are available to
+jump directly to specific fields or sections (and will automatically
+open dropdown menus):</p>
+<ul>
+<li><code>Alt+1</code>: Jump to Summary / Title</li>
+<li><code>Alt+2</code>: Jump to Category</li>
+<li><code>Alt+3</code>: Jump to Status</li>
+<li><code>Alt+4</code>: Jump to External Issue link</li>
+<li><code>Alt+5</code>: Jump to Affects Version</li>
+<li><code>Alt+6</code>: Jump to Resolved Version</li>
+<li><code>Alt+7</code>: Jump to the Messages Thread</li>
+<li><code>Alt+8</code>: Focus the Reply Editor</li>
+</ul>
+<p>These shortcuts work universally, even if you are viewing read-only
+versions of the fields. If you are actively typing inside a text box
+(like the Reply Editor) and wish to use a shortcut to jump elsewhere,
+simply use the <code>Alt+Number</code> shortcut directly—they will
+gracefully navigate you out of the current field.</p>
+<h2 id="ticket-search">Ticket search</h2>
+<p>The application header includes a global search field that is always
+visible for authenticated users. Pressing <code>Ctrl+K</code> focuses
+the search input.</p>
+<p>The search works across both tickets and articles from any page. As
+you type, matching results appear in a dropdown below the input field.
+Clicking a result navigates directly to the ticket or article detail
+page.</p>
+<p>For tickets, the search matches:</p>
+<ul>
+<li>Ticket identifier (e.g. typing <code>A-</code> suggests
+<code>A-00001</code>)</li>
+<li>Ticket title</li>
+</ul>
+<p>Arrow keys can be used to navigate results, and <code>Enter</code>
+selects the highlighted item.</p>
+<h2 id="detail-view">Detail view</h2>
+<p>The ticket detail page is where the full case comes together. It
+combines the current ticket data with the full conversation history,
+attached files, assignments, and related references.</p>
+<p>This page is the main working area for understanding a case in
+context.</p>
+<p>Cross-references from other tickets that mention this ticket are
+shown in a dedicated Related section in the ticket header.</p>
+<h2 id="ratings-and-feedback">Ratings and feedback</h2>
+<p>Once a ticket has been marked as <strong>Resolved</strong>, a rating
+can be submitted to capture customer satisfaction. A rating consists of
+a 1–10 star scale and an optional text comment. A ticket can only be
+rated once.</p>
+<h3 id="who-can-submit-a-rating">Who can submit a rating</h3>
+<ul>
+<li><strong>Users</strong> can rate their own tickets — only tickets
+where they are the requester.</li>
+<li><strong>Superusers</strong> can rate tickets belonging to their
+company. A superuser can only see and interact with tickets scoped to
+the company they belong to.</li>
+</ul>
+<p>Support, TAM, and Admin roles cannot submit ratings.</p>
+<h3 id="who-can-view-a-rating">Who can view a rating</h3>
+<p>Once a rating has been submitted, it becomes a read-only display on
+the ticket detail page. Visibility follows the same company-scoping
+rules as the ticket itself:</p>
+<ul>
+<li><strong>Users</strong> see the rating on their own tickets.</li>
+<li><strong>Superusers</strong> see ratings on all tickets within their
+company.</li>
+<li><strong>TAMs</strong> see ratings on tickets for the companies they
+are assigned to.</li>
+<li><strong>Support</strong> agents see ratings on all tickets they have
+access to.</li>
+<li><strong>Admins</strong> see ratings through the ticket workbench,
+which provides a system-wide view across all companies.</li>
+</ul>
+<h3 id="auto-close">Auto-close</h3>
+<p>If a resolved ticket is not rated within a configurable period
+(default: 7 days), the system automatically closes it. The interval can
+be configured by an Admin through the <strong>Owner</strong> settings
+page under “Ticket auto-close.” Setting the value to <strong>0</strong>
+disables auto-close entirely.</p>
+<p>When a ticket is auto-closed, its rating is set to
+<strong>-1</strong>. This sentinel value distinguishes auto-closed
+tickets from those that have not yet been rated (<code>null</code>) and
+those with an actual user-submitted rating
+(<code>1</code>–<code>10</code>).</p>
+<h2 id="external-tracking">External tracking</h2>
+<p>Tickets can also include an external issue reference. This makes it
+easier to connect billetsys with development or defect tracking
+workflows outside the ticket system itself.</p>
+<h2 id="export">Export</h2>
+<p>Billetsys supports exporting tickets so that a case can be shared,
+archived, or reviewed outside the live application. This is useful when
+teams need a portable version of the case record.</p>
+<h2 id="role-perspective">Role perspective</h2>
+<p>All roles interact with tickets, but not in the same way.</p>
+<p>In general:</p>
+<ul>
+<li>Users follow the cases they reported</li>
+<li>Superusers coordinate tickets within their broader company
+scope</li>
+<li>TAMs monitor and follow ticket activity across assigned
+accounts</li>
+<li>Support staff actively work and update tickets</li>
+<li>Admins oversee the structures behind the ticket process</li>
+</ul>
+<p>This shared but role-aware design is what makes the ticket model the
+center of billetsys.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="admin.html">Admin</a>
+      <a class="next" href="messages.html">Messages</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

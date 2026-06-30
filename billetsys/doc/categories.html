@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html" class="active">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#categories" id="toc-categories">Categories</a>
+      <ul>
+      <li><a href="#purpose" id="toc-purpose">Purpose</a></li>
+      <li><a href="#ticket-classification"
+      id="toc-ticket-classification">Ticket classification</a></li>
+      <li><a href="#default-behavior" id="toc-default-behavior">Default
+      behavior</a></li>
+      <li><a href="#operational-value"
+      id="toc-operational-value">Operational value</a></li>
+      <li><a href="#description-and-context"
+      id="toc-description-and-context">Description and context</a></li>
+      <li><a href="#keyboard-shortcuts"
+      id="toc-keyboard-shortcuts">Keyboard shortcuts</a></li>
+      <li><a href="#role-perspective" id="toc-role-perspective">Role
+      perspective</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="categories">Categories</h1>
+<p>The <strong>Categories</strong> feature helps billetsys classify
+tickets by the kind of issue they represent.</p>
+<figure>
+<img src="images/17-categories.png" style="width:100.0%"
+alt="Categories administration" />
+<figcaption aria-hidden="true">Categories administration</figcaption>
+</figure>
+<h2 id="purpose">Purpose</h2>
+<p>Not all tickets mean the same thing. Categories give structure to
+incoming work by labeling tickets in a way that helps users and support
+staff understand what kind of case they are looking at.</p>
+<p>This makes categories useful for both day-to-day handling and later
+reporting.</p>
+<h2 id="ticket-classification">Ticket classification</h2>
+<p>When a ticket is assigned to a category, that category becomes part
+of the case context. It helps make the ticket easier to understand and
+easier to compare with similar work.</p>
+<p>Categories can be used to reflect common kinds of support activity,
+such as:</p>
+<ul>
+<li>Product issues</li>
+<li>Usage questions</li>
+<li>Setup problems</li>
+<li>Requests</li>
+<li>Follow-up work</li>
+</ul>
+<p>The exact meaning depends on how billetsys is configured for the
+organization.</p>
+<h2 id="default-behavior">Default behavior</h2>
+<p>Categories are also useful because they provide a default
+classification model for tickets. This helps keep ticket creation
+consistent even when users do not actively think about classification at
+the moment they report an issue.</p>
+<h2 id="operational-value">Operational value</h2>
+<p>Over time, categories help teams answer questions such as:</p>
+<ul>
+<li>What kinds of issues are arriving most often</li>
+<li>Which work types take the most effort</li>
+<li>How support demand is distributed</li>
+</ul>
+<p>This means categories are not just labels on individual tickets. They
+also support better analysis and planning.</p>
+<h2 id="description-and-context">Description and context</h2>
+<p>In addition to a name, categories can carry richer descriptive
+context. This makes them useful as maintained reference items rather
+than simple tags.</p>
+<p>That context can help administrators keep the classification system
+understandable as the support operation grows.</p>
+<p>Categories can include attachments. This makes it possible to keep
+supporting examples, templates, or reference files directly on the
+category definition.</p>
+<h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+<p>Like all paginated list views in the application, the categories list
+supports keyboard shortcuts for quick navigation. You can use
+<code>Alt+1</code> through <code>Alt+0</code> to open items in the
+currently visible list.</p>
+<p>On the category form page, the following shortcuts are available to
+jump directly to specific fields (and open dropdowns automatically): *
+<code>Alt+1</code>: Jump to Name * <code>Alt+2</code>: Jump to
+Default</p>
+<p>These shortcuts work universally. See the <strong>Navigation</strong>
+chapter for more details.</p>
+<h2 id="role-perspective">Role perspective</h2>
+<p>Categories are mostly maintained by administrative roles, but they
+affect many other parts of the application. Users, support staff, TAMs,
+and superusers all benefit from clearer ticket classification even if
+they are not the ones managing the category definitions directly.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="users.html">Users</a>
+      <a class="next" href="entitlements.html">Entitlements</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

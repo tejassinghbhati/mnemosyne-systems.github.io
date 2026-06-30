@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install — billetsys</title>
+  <meta name="description" content="Install billetsys: set up PostgreSQL, clone the repository, start the support services, and run the application in Quarkus development mode." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .step-block {
+      background: var(--bg-2);
+      border: 1px solid var(--border-2);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--amber);
+      background: var(--amber-soft);
+      border: 1px solid var(--amber-line);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      letter-spacing: 0.05em;
+    }
+    .step-header h3 { font-size: 0.925rem; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+    .step-body { padding: 1.25rem 1.5rem; }
+    .step-body p { font-size: 0.875rem; color: var(--text-2); line-height: 1.75; margin-bottom: 0.875rem; }
+    .step-body p:last-child { margin-bottom: 0; }
+    .step-note { font-size: 0.8rem; color: var(--text-3); margin-top: 0.625rem; }
+    .step-note a { color: var(--amber); text-decoration: none; }
+    .step-note a:hover { text-decoration: underline; }
+    .terminal-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      line-height: 1.9;
+      color: var(--text-2);
+      margin: 0.75rem 0;
+    }
+    .terminal-block .p { color: var(--amber); }
+    .terminal-block .k { color: var(--teal); }
+    .terminal-block .dim { color: var(--text-3); }
+    .terminal-block .g { color: #7ec88a; }
+    .login-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 0.5rem; }
+    .login-table th, .login-table td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+    .login-table th { color: var(--text-3); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .login-table td { color: var(--text-2); font-family: 'JetBrains Mono', monospace; }
+    .login-table td:first-child { color: var(--text); }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.svg" alt="" width="22" height="22" style="vertical-align:-6px;margin-right:.5rem" />BILLETSYS</a>
+  <ul class="nav-center">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html" class="active">Install</a></li>
+    <li><a href="doc/introduction.html">Docs</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost btn-nav-github" href="https://github.com/mnemosyne-systems/billetsys" target="_blank" aria-label="GitHub"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <section class="hero" style="min-height: 30vh; padding-bottom: 2rem; display:block;">
+    <p class="hero-eyebrow">Installation</p>
+    <h1 class="hero-title">From clone to login,<br>in a few commands.</h1>
+    <p class="hero-subtitle" style="margin-bottom: 0;">
+      Set up a local development environment for billetsys with PostgreSQL and run it in Quarkus dev mode. You'll need Java 25, Maven, PostgreSQL, and Git.
+    </p>
+  </section>
+
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container-sm">
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">01</span><h3>Requirements</h3></div>
+        <div class="step-body">
+          <p>Make sure the following tools are available before you begin:</p>
+          <div class="terminal-block">
+            <div><span class="dim"># required</span></div>
+            <div><span class="k">Java</span> 25 · <span class="k">Maven</span> · <span class="k">PostgreSQL</span> · <span class="k">Git</span></div>
+          </div>
+          <p class="step-note">A container engine — <a href="https://podman.io/" target="_blank">Podman</a> or <a href="https://www.docker.com/" target="_blank">Docker</a> with Compose — is recommended for the captcha support service.</p>
+        </div>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">02</span><h3>Get the source code</h3></div>
+        <div class="step-body">
+          <p>Clone the repository and enter the project directory:</p>
+          <div class="terminal-block">
+            <div><span class="p">git clone</span> https://github.com/mnemosyne-systems/billetsys.git</div>
+            <div><span class="p">cd</span> billetsys</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">03</span><h3>Set up PostgreSQL</h3></div>
+        <div class="step-body">
+          <p>The default local configuration expects a database named <code>ticketdb</code> and a user <code>ticketdb</code> with password <code>ticketdb</code>. Create them:</p>
+          <div class="terminal-block">
+            <div><span class="p">createuser</span> -P ticketdb</div>
+            <div><span class="p">createdb</span> -E UTF8 -O ticketdb ticketdb</div>
+          </div>
+          <p class="step-note">billetsys connects to PostgreSQL on <code>localhost:5432</code> by default. Override with <code>DB_HOST</code> and <code>DB_PORT</code> if needed. To start fresh, <code>dropdb ticketdb</code> then recreate it.</p>
+        </div>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">04</span><h3>Start support services</h3></div>
+        <div class="step-body">
+          <p>billetsys uses a local CAP service for captcha protection on the password-reset flow. Start it before the application:</p>
+          <div class="terminal-block">
+            <div><span class="p">make</span> platform</div>
+          </div>
+          <p class="step-note">This detects Podman Compose or Docker Compose and starts the containers in <code>docker-compose.yml</code>. If neither is installed, the step is skipped with a warning.</p>
+        </div>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">05</span><h3>Start billetsys</h3></div>
+        <div class="step-body">
+          <p>Start the application in Quarkus development mode:</p>
+          <div class="terminal-block">
+            <div><span class="p">mvn</span> clean quarkus:dev</div>
+            <div>&nbsp;</div>
+            <div><span class="g">listening on http://localhost:8080</span></div>
+            <div><span class="g">           https://localhost:8443</span></div>
+          </div>
+          <p class="step-note">On startup, billetsys connects to PostgreSQL, updates the schema, and loads bootstrap data. In dev mode, outgoing email is mocked so you can test notification flows without a mail server.</p>
+        </div>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-header"><span class="step-num">06</span><h3>First login</h3></div>
+        <div class="step-body">
+          <p>The seeded development users let you explore every role immediately:</p>
+          <table class="login-table">
+            <thead><tr><th>Role</th><th>Username</th><th>Password</th></tr></thead>
+            <tbody>
+              <tr><td>User</td><td>user1</td><td>user1</td></tr>
+              <tr><td>Superuser</td><td>superuser1</td><td>superuser1</td></tr>
+              <tr><td>TAM</td><td>tam1</td><td>tam1</td></tr>
+              <tr><td>Support</td><td>support1</td><td>support1</td></tr>
+              <tr><td>Admin</td><td>admin</td><td>admin</td></tr>
+            </tbody>
+          </table>
+          <p class="step-note" style="margin-top: 1rem;">Additional seeded accounts include <code>user2</code>, <code>userb</code>, <code>superuser2</code>, <code>tam2</code>, and <code>support2</code>. See the <a href="doc/getting-started.html">Getting Started</a> guide for the full list.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem;">
+        <a href="doc/getting-started.html" class="btn-primary">Read Getting Started</a>
+        <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank" class="btn-secondary">View on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="footer-brand" href="index.html">BILLETSYS</a>
+  <ul class="footer-links">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/introduction.html">Docs</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">GitHub</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Commercial Support</a></li>
+  </ul>
+  <span class="footer-copy">EPL v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script src="border-glow.js"></script>
+
+</body>
+</html>

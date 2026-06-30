@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html" class="active">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#email" id="toc-email">Email</a>
+      <ul>
+      <li><a href="#purpose" id="toc-purpose">Purpose</a></li>
+      <li><a href="#outgoing-notifications"
+      id="toc-outgoing-notifications">Outgoing notifications</a></li>
+      <li><a href="#incoming-email" id="toc-incoming-email">Incoming
+      email</a></li>
+      <li><a href="#how-billetsys-matches-email-to-tickets"
+      id="toc-how-billetsys-matches-email-to-tickets">How billetsys
+      matches email to tickets</a></li>
+      <li><a href="#mailbox-polling" id="toc-mailbox-polling">Mailbox
+      polling</a></li>
+      <li><a href="#ticket-linked-communication"
+      id="toc-ticket-linked-communication">Ticket-linked
+      communication</a></li>
+      <li><a href="#shared-awareness" id="toc-shared-awareness">Shared
+      awareness</a></li>
+      <li><a href="#attachments-in-mail-flow"
+      id="toc-attachments-in-mail-flow">Attachments in mail
+      flow</a></li>
+      <li><a href="#operational-flow"
+      id="toc-operational-flow">Operational flow</a></li>
+      <li><a href="#operational-value"
+      id="toc-operational-value">Operational value</a></li>
+      <li><a href="#why-it-matters" id="toc-why-it-matters">Why it
+      matters</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="email">Email</h1>
+<p>The <strong>Email</strong> functionality in billetsys connects ticket
+activity with outgoing notifications, direct incoming email, and
+mailbox-based ticket updates.</p>
+<figure>
+<img src="images/14-email.png" style="width:100.0%"
+alt="Ticket conversation related to email flow" />
+<figcaption aria-hidden="true">Ticket conversation related to email
+flow</figcaption>
+</figure>
+<h2 id="purpose">Purpose</h2>
+<p>Support work often continues outside the web interface. Email
+integration helps billetsys stay aligned with how support teams and
+customers already communicate, while still keeping the ticket system as
+the main source of record.</p>
+<h2 id="outgoing-notifications">Outgoing notifications</h2>
+<p>Billetsys can send outgoing notifications when important ticket
+activity happens.</p>
+<p>Typical examples include:</p>
+<ul>
+<li>New messages on a ticket</li>
+<li>Status changes</li>
+<li>Updates that affect the people following the case</li>
+</ul>
+<p>This helps requesters, support users, and other involved roles stay
+informed without needing to constantly refresh the application.</p>
+<p>Typical recipients include:</p>
+<ul>
+<li>The requester</li>
+<li>Assigned TAM users</li>
+<li>Assigned support users</li>
+</ul>
+<h2 id="incoming-email">Incoming email</h2>
+<p>Billetsys also supports workflows where incoming email becomes part
+of the ticket conversation. This makes it possible to continue support
+communication through email while still preserving the ticket history in
+the application.</p>
+<p>There are two main incoming paths:</p>
+<ul>
+<li><code>POST /mail/incoming</code> for direct integration from another
+system</li>
+<li>Scheduled mailbox polling for IMAP or POP3 mailboxes</li>
+</ul>
+<p>Both paths reuse the same ticket-ingestion logic.</p>
+<p>The <code>POST /mail/incoming</code> endpoint is enabled by default.
+Installations that want to turn it off can set
+<code>ticket.mail.incoming.enabled=false</code>. When disabled, the
+endpoint is no longer available, while outgoing email and mailbox
+polling can still be used separately.</p>
+<h2 id="how-billetsys-matches-email-to-tickets">How billetsys matches
+email to tickets</h2>
+<p>When a message arrives, billetsys uses the sender and subject to
+decide whether it should create a new ticket or update an existing
+one.</p>
+<p>Typical rules are:</p>
+<ul>
+<li>The <code>From:</code> address must match a known user</li>
+<li>The sender’s company defines which company context the ticket
+belongs to</li>
+<li>A subject token such as <code>[A-00005]</code> is used to find an
+existing ticket</li>
+<li>If no ticket token is present, billetsys creates a new ticket for
+the sender’s company</li>
+<li>If the sender does not belong to the ticket context, the email is
+ignored</li>
+</ul>
+<p>This means customers can continue a discussion by replying with the
+ticket number in the subject, while brand new requests can still become
+new tickets automatically.</p>
+<h2 id="mailbox-polling">Mailbox polling</h2>
+<p>Mailbox polling lets billetsys pull messages directly from a mailbox
+on a schedule.</p>
+<p>This is useful when:</p>
+<ul>
+<li>Customers send email to a shared support mailbox</li>
+<li>Another mail gateway forwards messages into a mailbox</li>
+<li>The organization wants billetsys to import unread email
+automatically</li>
+</ul>
+<p>After a message is processed successfully, billetsys marks it as
+seen. Installations can also be configured to delete processed messages
+from the mailbox.</p>
+<h2 id="ticket-linked-communication">Ticket-linked communication</h2>
+<p>Email works best when it stays connected to the ticket record. In
+billetsys, email-related activity supports that goal by helping message
+updates and case changes remain visible in the same support flow as
+web-based actions.</p>
+<p>This reduces the risk that support communication becomes fragmented
+across separate tools.</p>
+<h2 id="shared-awareness">Shared awareness</h2>
+<p>When email notifications are sent, the right participants can stay
+aligned on the current state of a case. This is particularly useful when
+several roles are involved, such as requesters, support staff, TAMs, and
+coordinating customer contacts.</p>
+<h2 id="attachments-in-mail-flow">Attachments in mail flow</h2>
+<p>Because support work often includes file sharing, email-related
+workflows also benefit from the attachment model used elsewhere in
+billetsys. This helps preserve not only the written update, but also the
+supporting files that came with it.</p>
+<p>Attachments received through incoming email or mailbox polling are
+stored on the ticket message so the files remain visible inside the case
+history.</p>
+<h2 id="operational-flow">Operational flow</h2>
+<p>A common mailbox-driven workflow looks like this:</p>
+<ul>
+<li>A user sends an email from an address already known in
+billetsys</li>
+<li>Billetsys reads the sender and subject</li>
+<li>If the subject contains a token such as <code>[A-00005]</code>, the
+message is added to that ticket</li>
+<li>If there is no token, billetsys creates a new ticket for the
+sender’s company</li>
+<li>Any attachments are stored with the new ticket message</li>
+<li>Outgoing notifications keep the involved users informed</li>
+</ul>
+<p>This gives teams a practical bridge between email habits and
+structured ticket handling.</p>
+<h2 id="operational-value">Operational value</h2>
+<p>Email integration makes billetsys more practical in real support
+environments. It supports the way people already communicate while still
+bringing that communication back into the managed ticket workflow.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Without email support, the application would only reflect part of the
+conversation. With email integration, billetsys can act as a more
+complete communication hub for support cases, not just a place where
+ticket fields are updated.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="attachments.html">Attachments</a>
+      <a class="next" href="import.html">Ticket Import</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

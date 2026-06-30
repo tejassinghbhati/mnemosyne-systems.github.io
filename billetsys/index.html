@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>billetsys — Modern Support Ticket Solution</title>
+  <meta name="description" content="billetsys is a modern, open-source support ticket system built for every role — users, superusers, TAMs, support, and admins — to navigate easily and get work done quicker." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<!-- ─── Nav ─────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.svg" alt="" width="22" height="22" style="vertical-align:-6px;margin-right:.5rem" />BILLETSYS</a>
+  <ul class="nav-center">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="install.html">Install</a></li>
+    <li><a href="doc/introduction.html">Docs</a></li>
+    <li><a href="releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn-nav-ghost btn-nav-github" href="https://github.com/mnemosyne-systems/billetsys" target="_blank" aria-label="GitHub"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ─── Hero ─────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">
+        Support that every<br>role can <em>move</em> faster on.
+      </h1>
+      <p class="hero-subtitle">
+        billetsys is an open-source support ticket system that keeps the whole case — status, ownership, conversation, attachments, and product context — in one record. Five roles, one shared model, a focused screen for each.
+      </p>
+      <div class="hero-cta">
+        <a href="doc/getting-started.html" class="btn-primary">
+          Get started
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="features.html" class="btn-secondary">Explore features</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img class="hero-logo" src="logo.svg" alt="billetsys logo" />
+    </div>
+  </section>
+
+  <!-- ─── Install strip ─────────────────────── -->
+  <div class="install-strip">
+    <div class="install-pill">
+      <span class="prompt">$</span>
+      <span class="cmd">git clone https://github.com/mnemosyne-systems/billetsys.git &amp;&amp; cd billetsys &amp;&amp; make</span>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/mnemosyne-systems/billetsys.git && cd billetsys && make');this.textContent='Copied';setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
+    </div>
+  </div>
+
+  <!-- ─── What is billetsys ────────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="section-label">Why billetsys</span>
+          <div class="sep"></div>
+          <h2 class="section-title">One record for<br>the whole case.</h2>
+          <p class="section-body">
+            Instead of splitting status, ownership, communication, and files across different tools, billetsys keeps them connected to the same ticket — from the first report through investigation to final resolution.
+          </p>
+          <div class="feature-list">
+            <a href="doc/roles.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Built around roles</h4>
+                  <p>User, Superuser, TAM, Support, and Admin each get a focused view — plus an External Contributor stub for third parties who reply by email.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/messages.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Conversation in context</h4>
+                  <p>Public and private message threads live on the ticket, with role-scoped visibility and a Markdown editor for rich replies.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/email.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Email that stays in sync</h4>
+                  <p>Outgoing notifications, an incoming mail endpoint, and IMAP/POP3 polling all feed the same ticket history.</p>
+                </div>
+              </div>
+            </a>
+            <a href="doc/security.html">
+              <div class="feature-item">
+                <span class="feature-dash"></span>
+                <div>
+                  <h4>Scoped and secure</h4>
+                  <p>Role-based authorization, session handling, captcha-protected flows, and TLS 1.3 throughout.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="code-window" style="padding:0;overflow:hidden;">
+          <div class="code-window-bar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <img src="doc/images/11-tickets.png" alt="Open tickets view in billetsys" style="display:block;width:100%;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Roles ──────────────────────────────── -->
+  <style>
+    .role-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .role-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.6rem; text-decoration: none; transition: border-color .15s, background .15s; display:block; }
+    .role-card:hover { border-color: var(--amber-line); background: var(--bg-3); }
+    .role-card .badge { display:inline-flex; align-items:center; padding: .32rem .7rem; border-radius: 6px; background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); font-weight: 700; font-size: .8rem; letter-spacing: .01em; margin-bottom: .9rem; }
+    .role-card p { font-size: .83rem; color: var(--text-2); line-height: 1.6; }
+    @media (max-width: 760px) { .role-cards { grid-template-columns: 1fr; } }
+  </style>
+  <section class="section reveal">
+    <div class="container">
+      <div style="margin-bottom: 1rem;">
+        <span class="section-label">Roles</span>
+        <div class="sep"></div>
+        <h2 class="section-title">Five roles,<br>one support process.</h2>
+        <p class="section-body" style="max-width: 640px;">
+          The role model separates customer-facing work from operational support and system administration, so every screen stays focused on what matters for that role. Each role carries its own customizable badge throughout the app.
+        </p>
+      </div>
+      <div class="role-cards">
+        <a class="role-card" href="doc/user.html"><span class="badge">User</span><p>Create tickets, follow progress, and exchange messages with support.</p></a>
+        <a class="role-card" href="doc/superuser.html"><span class="badge">Superuser</span><p>A customer-side power user coordinating tickets across a company scope.</p></a>
+        <a class="role-card" href="doc/tam.html"><span class="badge">TAM</span><p>Technical Account Manager tracking customer activity across companies.</p></a>
+        <a class="role-card" href="doc/support.html"><span class="badge">Support</span><p>Work the queue, update assignments, and reply with attachments.</p></a>
+        <a class="role-card" href="doc/admin.html"><span class="badge">Admin</span><p>Manage companies, users, categories, entitlements, and reference data.</p></a>
+        <a class="role-card" href="doc/roles.html"><span class="badge">External Contributor</span><p>A stub role for third parties who receive and reply to tickets by email.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Features ───────────────────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div style="margin-bottom: 3rem;">
+        <span class="section-label">Features</span>
+        <div class="sep"></div>
+        <h2 class="section-title">Everything a support team needs.</h2>
+      </div>
+      <div class="doc-grid-home">
+        <a href="doc/tickets.html" class="doc-cell">
+          <span class="doc-cell-label">Tickets</span>
+          <h3>Full case lifecycle</h3>
+          <p>Status, assignment, category, entitlement, versions, ratings, and external issue references on every ticket.</p>
+        </a>
+        <a href="doc/messages.html" class="doc-cell">
+          <span class="doc-cell-label">Messages</span>
+          <h3>Public &amp; private threads</h3>
+          <p>Reply in the open or keep notes private to your role group, all in the ticket history.</p>
+        </a>
+        <a href="doc/articles.html" class="doc-cell">
+          <span class="doc-cell-label">Knowledge</span>
+          <h3>Articles &amp; search</h3>
+          <p>A shared knowledge base with tags and a global <code>Ctrl+K</code> search across tickets and articles.</p>
+        </a>
+        <a href="doc/email.html" class="doc-cell">
+          <span class="doc-cell-label">Email</span>
+          <h3>Two-way email</h3>
+          <p>Notifications out, plus incoming mail via an endpoint or IMAP/POP3 polling into the same ticket.</p>
+        </a>
+        <a href="doc/import.html" class="doc-cell">
+          <span class="doc-cell-label">Migration</span>
+          <h3>CSV ticket import</h3>
+          <p>Bulk-onboard a backlog from another helpdesk; the framework extends to Jira and Bugzilla.</p>
+        </a>
+        <a href="doc/pdf.html" class="doc-cell">
+          <span class="doc-cell-label">Export</span>
+          <h3>PDF documents</h3>
+          <p>Turn tickets and reports into portable documents for archiving, review, and sharing.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Stats ─────────────────────────────── -->
+  <section class="section-sm reveal">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-cell">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Signed-in roles</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">EPL&nbsp;2.0</span>
+          <span class="stat-label">Open-source license</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">0.3</span>
+          <span class="stat-label">Latest release</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── What's new ──────────────────────────── -->
+  <style>
+    .release-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem 2rem; }
+    .release-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+    .release-ver { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+    .release-badge { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); background: var(--amber-soft); border: 1px solid var(--amber-line); border-radius: 4px; padding: 0.25rem 0.5rem; }
+    .release-date { font-size: 0.82rem; color: var(--text-3); }
+    .release-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem; }
+    .release-list li { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; padding-left: 1rem; position: relative; }
+    .release-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+    .release-list strong { color: var(--text); font-weight: 600; }
+    .release-all { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem; font-size: 0.85rem; font-weight: 600; color: var(--amber); text-decoration: none; transition: gap 0.15s; }
+    .release-all:hover { gap: 0.7rem; }
+    @media (max-width: 700px) { .release-list { grid-template-columns: 1fr; } }
+  </style>
+  <section class="section reveal" id="whats-new">
+    <div class="container">
+      <div style="margin-bottom: 2.5rem;">
+        <span class="section-label">What's new</span>
+        <div class="sep"></div>
+        <h2 class="section-title">The latest release.</h2>
+      </div>
+      <div class="release-card">
+        <div class="release-head">
+          <span class="release-ver">billetsys 0.3.0</span>
+          <span class="release-badge">Latest</span>
+          <span class="release-date">Support ticket system</span>
+        </div>
+        <ul class="release-list">
+          <li><strong>Role badges</strong> — Each role is distinguished by a customizable icon and color.</li>
+          <li><strong>Ticket &amp; article references</strong> — Cross-reference and mention across records.</li>
+          <li><strong>CSV import</strong> — Bulk-onboard tickets from external helpdesks.</li>
+          <li><strong>Markdown editor</strong> — Rich content for messages and articles.</li>
+          <li><strong>Email integration</strong> — Incoming endpoint and mailbox polling.</li>
+          <li><strong>TLS 1.3</strong> — Secure transport throughout.</li>
+        </ul>
+      </div>
+      <a href="releases.html" class="release-all">See all releases →</a>
+    </div>
+  </section>
+
+  <!-- ─── Tech stack ───────────────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="split reverse">
+        <div class="code-window">
+          <div class="code-window-bar">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <div class="code-window-body">
+            <div><span class="c-d"># clone &amp; build</span></div>
+            <div><span class="c-a">$</span> <span class="c-w">git clone https://github.com/mnemosyne-systems/billetsys.git</span></div>
+            <div><span class="c-a">$</span> <span class="c-w">cd billetsys</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-d"># start CAP + Valkey support services</span></div>
+            <div><span class="c-a">$</span> <span class="c-w">make platform</span></div>
+            <div><span class="c-t">starting docker-compose ...</span></div>
+            <div>&nbsp;</div>
+            <div><span class="c-d"># run in dev mode</span></div>
+            <div><span class="c-a">$</span> <span class="c-w">mvn clean quarkus:dev</span></div>
+            <div><span class="c-t">listening on http://localhost:8080</span></div>
+            <div><span class="c-t">           https://localhost:8443</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Built on a modern stack</span>
+          <div class="sep"></div>
+          <h2 class="section-title">Quarkus, PostgreSQL,<br>React &amp; TypeScript.</h2>
+          <p class="section-body">
+            A Quarkus backend on Java 25 talks to PostgreSQL, while a React + TypeScript frontend built with Vite uses shadcn/ui and Tailwind CSS. Build it with Maven and Make.
+          </p>
+          <div class="feature-list">
+            <a href="doc/architecture.html">
+              <div class="feature-item"><span class="feature-dash"></span><div><h4>Quarkus on Java 25</h4><p>Fast, container-friendly backend with schema updates and bootstrap data on startup.</p></div></div>
+            </a>
+            <a href="doc/building.html">
+              <div class="feature-item"><span class="feature-dash"></span><div><h4>One <code>make</code> to run</h4><p>Maven + Make build, Quarkus dev mode, and Docker/Podman Compose for support services.</p></div></div>
+            </a>
+            <a href="doc/getting-started.html">
+              <div class="feature-item"><span class="feature-dash"></span><div><h4>Seeded for testing</h4><p>Development users for every role let you explore each perspective immediately.</p></div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Documentation grid ───────────────── -->
+  <section class="section reveal">
+    <div class="container">
+      <div style="margin-bottom: 3rem;">
+        <span class="section-label">Documentation</span>
+        <div class="sep"></div>
+        <h2 class="section-title">The complete manual.</h2>
+      </div>
+      <div class="doc-grid-home">
+        <a href="doc/introduction.html" class="doc-cell"><span class="doc-cell-label">Guide</span><h3>Introduction</h3><p>What billetsys is, the ticket lifecycle, roles, communication, and knowledge.</p></a>
+        <a href="doc/getting-started.html" class="doc-cell"><span class="doc-cell-label">Guide</span><h3>Getting Started</h3><p>Set up PostgreSQL, start support services, and run the app in dev mode.</p></a>
+        <a href="doc/roles.html" class="doc-cell"><span class="doc-cell-label">Reference</span><h3>Roles</h3><p>User, Superuser, TAM, Support, Admin, and the External Contributor stub.</p></a>
+        <a href="doc/tickets.html" class="doc-cell"><span class="doc-cell-label">Reference</span><h3>Tickets</h3><p>Core information, the lifecycle, and how a case is followed end to end.</p></a>
+        <a href="doc/email.html" class="doc-cell"><span class="doc-cell-label">Reference</span><h3>Email</h3><p>Outgoing notifications, incoming mail, and mailbox polling.</p></a>
+        <a href="doc/security.html" class="doc-cell"><span class="doc-cell-label">Reference</span><h3>Security</h3><p>Authentication, authorization, sessions, and password protection.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Support band ────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="support-grid reveal">
+        <div class="support-card">
+          <span class="section-label">Open source</span>
+          <div class="sep"></div>
+          <h2 class="support-card-title">Free to use,<br>free to modify.</h2>
+          <p class="support-card-body">
+            billetsys is released under the Eclipse Public License v2.0. Use it, fork it, contribute back — no subscriptions and no vendor lock-in.
+          </p>
+          <div class="support-card-actions">
+            <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank" class="btn-primary">View on GitHub</a>
+          </div>
+        </div>
+        <div class="support-card support-card-commercial">
+          <span class="section-label">Commercial support</span>
+          <div class="sep"></div>
+          <h2 class="support-card-title">Running billetsys ?</h2>
+          <p class="support-card-body">
+            mnemosyne systems offers support contracts for companies that depend on billetsys. Direct access to the maintainers, priority response and development.
+          </p>
+          <div class="support-card-actions">
+            <a href="mailto:sales@mnemosyne-systems.ai" class="support-email">sales@mnemosyne-systems.ai</a>
+            <a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank" class="btn-primary">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="footer-brand" href="index.html">BILLETSYS</a>
+  <ul class="footer-links">
+    <li><a href="doc/introduction.html">Introduction</a></li>
+    <li><a href="doc/getting-started.html">Getting Started</a></li>
+    <li><a href="doc/roles.html">Roles</a></li>
+    <li><a href="doc/tickets.html">Tickets</a></li>
+    <li><a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">GitHub</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Commercial Support</a></li>
+  </ul>
+  <span class="footer-copy">EPL v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+<script src="border-glow.js"></script>
+
+</body>
+</html>

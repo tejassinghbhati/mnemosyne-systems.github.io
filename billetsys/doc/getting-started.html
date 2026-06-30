@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html" class="active">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#getting-started" id="toc-getting-started">Getting
+      started</a>
+      <ul>
+      <li><a href="#requirements"
+      id="toc-requirements">Requirements</a></li>
+      <li><a href="#postgresql-setup"
+      id="toc-postgresql-setup">PostgreSQL setup</a></li>
+      <li><a href="#get-the-source-code"
+      id="toc-get-the-source-code">Get the source code</a></li>
+      <li><a href="#start-support-services"
+      id="toc-start-support-services">Start support services</a></li>
+      <li><a href="#start-billetsys" id="toc-start-billetsys">Start
+      billetsys</a></li>
+      <li><a href="#first-login" id="toc-first-login">First
+      login</a></li>
+      <li><a href="#notes" id="toc-notes">Notes</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="getting-started">Getting started</h1>
+<p>This chapter describes how to prepare a local development setup for
+<a
+href="https://github.com/mnemosyne-systems/billetsys"><strong>billetsys</strong></a>
+using PostgreSQL and how to start the application in development
+mode.</p>
+<figure>
+<img src="images/02-gettingstarted.png" style="width:100.0%"
+alt="Application after startup" />
+<figcaption aria-hidden="true">Application after startup</figcaption>
+</figure>
+<h2 id="requirements">Requirements</h2>
+<p>Before you begin, make sure the following tools are available:</p>
+<ul>
+<li><a href="https://openjdk.org/">Java</a> 25</li>
+<li><a href="https://maven.apache.org/">Maven</a></li>
+<li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+</ul>
+<h2 id="postgresql-setup">PostgreSQL setup</h2>
+<p>The default local configuration expects a PostgreSQL database named
+<code>ticketdb</code> and a database user with username
+<code>ticketdb</code> and password <code>ticketdb</code>.</p>
+<p>Create the user and database in PostgreSQL:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">createuser</span> <span class="at">-P</span> ticketdb</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">createdb</span> <span class="at">-E</span> UTF8 <span class="at">-O</span> ticketdb ticketdb</span></code></pre></div>
+<p>If you already have an existing local database and want to recreate
+it from scratch, you can do:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dropdb</span> ticketdb</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">createdb</span> <span class="at">-E</span> UTF8 <span class="at">-O</span> ticketdb ticketdb</span></code></pre></div>
+<p>The application connects to PostgreSQL on <code>localhost:5432</code>
+by default. These defaults can be changed through environment variables
+such as <code>DB_HOST</code> and <code>DB_PORT</code> if needed.</p>
+<h2 id="get-the-source-code">Get the source code</h2>
+<p>Clone the repository and enter the project directory:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/mnemosyne-systems/billetsys.git</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> billetsys</span></code></pre></div>
+<h2 id="start-support-services">Start support services</h2>
+<p>Billetsys uses a local CAP service for CAPTCHA protection on the
+password reset flow. Start the support services before starting the
+application:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> platform</span></code></pre></div>
+<p>This detects whether you have Podman Compose or Docker Compose and
+starts the containers defined in <code>docker-compose.yml</code>. If
+neither is installed, the command is skipped with a warning.</p>
+<h2 id="start-billetsys">Start billetsys</h2>
+<p>Start the application in Quarkus development mode:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mvn</span> clean quarkus:dev</span></code></pre></div>
+<p>On startup, billetsys will connect to PostgreSQL, update the schema,
+and load bootstrap data.</p>
+<p>The application listens on:</p>
+<ul>
+<li><code>Http://localhost:8080</code></li>
+<li><code>Https://localhost:8443</code></li>
+</ul>
+<h2 id="first-login">First login</h2>
+<p>The seeded development users include the following accounts:</p>
+<ul>
+<li>User: <code>user1</code> / <code>user1</code></li>
+<li>User: <code>user2</code> / <code>user2</code></li>
+<li>User: <code>userb</code> / <code>userb</code></li>
+<li>Superuser: <code>superuser1</code> / <code>superuser1</code></li>
+<li>Superuser: <code>superuser2</code> / <code>superuser2</code></li>
+<li>TAM: <code>tam1</code> / <code>tam1</code></li>
+<li>TAM: <code>tam2</code> / <code>tam2</code></li>
+<li>Support: <code>support1</code> / <code>support1</code></li>
+<li>Support: <code>support2</code> / <code>support2</code></li>
+<li>Admin: <code>admin</code> / <code>admin</code></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>In development mode, billetsys uses mocked outgoing email by default,
+which makes it easier to test notification flows without configuring a
+real mail server.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="introduction.html">Introduction</a>
+      <a class="next" href="navigation.html">Navigation</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

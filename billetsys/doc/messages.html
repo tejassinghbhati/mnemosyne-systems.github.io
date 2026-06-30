@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="messages.html" class="active">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#messages" id="toc-messages">Messages</a>
+      <ul>
+      <li><a href="#purpose" id="toc-purpose">Purpose</a></li>
+      <li><a href="#conversation-model"
+      id="toc-conversation-model">Conversation model</a></li>
+      <li><a href="#typical-message-content"
+      id="toc-typical-message-content">Typical message content</a></li>
+      <li><a href="#attachments"
+      id="toc-attachments">Attachments</a></li>
+      <li><a href="#ticket-mentions" id="toc-ticket-mentions">Ticket
+      mentions</a></li>
+      <li><a href="#article-mentions" id="toc-article-mentions">Article
+      mentions</a></li>
+      <li><a href="#communication-flow"
+      id="toc-communication-flow">Communication flow</a></li>
+      <li><a href="#notifications"
+      id="toc-notifications">Notifications</a></li>
+      <li><a href="#email-integration" id="toc-email-integration">Email
+      integration</a></li>
+      <li><a href="#reading-the-thread"
+      id="toc-reading-the-thread">Reading the thread</a></li>
+      <li><a href="#role-perspective" id="toc-role-perspective">Role
+      perspective</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="messages">Messages</h1>
+<p>The <strong>Messages</strong> area of billetsys captures the
+conversation that happens around a ticket.</p>
+<figure>
+<img src="images/12-messages.png" style="width:100.0%"
+alt="Ticket message thread" />
+<figcaption aria-hidden="true">Ticket message thread</figcaption>
+</figure>
+<h2 id="purpose">Purpose</h2>
+<p>A ticket by itself is only a container for case information. Messages
+provide the ongoing dialogue that explains what was reported, what was
+investigated, what changed, and what was finally done.</p>
+<p>Because messages are tied directly to tickets, billetsys keeps the
+communication history and the case record together.</p>
+<h2 id="conversation-model">Conversation model</h2>
+<p>Each message belongs to a specific ticket and becomes part of that
+ticket’s history. Over time, the message thread shows how the case
+developed from the initial report to the final outcome.</p>
+<p>This makes the thread valuable not only for communication, but also
+for auditability and knowledge transfer.</p>
+<p>Messages are <strong>public by default</strong>. When writing a
+message, the sender can switch <strong>Public</strong> off to create a
+private message instead.</p>
+<p>Private messages are only visible within the matching role group:</p>
+<ul>
+<li>Messages written by <strong>Support</strong> or <strong>TAM</strong>
+are private to <strong>Support and TAM</strong></li>
+<li>Messages written by <strong>User</strong> or
+<strong>Superuser</strong> are private to <strong>User and
+Superuser</strong></li>
+</ul>
+<p>Private messages are clearly marked with <strong>(Private)</strong>
+in the message header.</p>
+<h2 id="typical-message-content">Typical message content</h2>
+<p>Messages can be used for:</p>
+<ul>
+<li>Problem descriptions</li>
+<li>Follow-up questions</li>
+<li>Investigation updates</li>
+<li>Solution details</li>
+<li>Closure notes</li>
+</ul>
+<p>This helps the ticket history reflect the real work that happened on
+the case.</p>
+<h2 id="attachments">Attachments</h2>
+<p>Messages can include attachments when files are needed to explain or
+document an issue. This is useful for logs, screenshots, reports,
+exports, and other supporting material.</p>
+<p>By keeping attachments inside the message flow, billetsys ensures
+that evidence and discussion stay connected.</p>
+<h2 id="ticket-mentions">Ticket mentions</h2>
+<p>Messages support ticket cross-references using the <code>#</code>
+mention syntax. Typing <code>#</code> followed by a ticket identifier in
+the message editor opens a suggestion list. Selecting a ticket inserts a
+mention that links to the referenced ticket.</p>
+<p>Mentions create a cross-reference record. Referenced tickets appear
+in a dedicated Related section, and inline mentions in messages show a
+hover preview.</p>
+<h2 id="article-mentions">Article mentions</h2>
+<p>Messages support article references using the <code>$</code> mention
+syntax. Typing <code>$</code> followed by an article identifier in the
+message editor opens a suggestion list. Selecting an article inserts a
+mention that links to the referenced article.</p>
+<p>Article mentions create a reference record on the ticket side only,
+the referenced article itself is not modified. The inline mention in the
+rendered message displays the article title, while the dedicated
+Articles section on the ticket lists referenced articles sorted by
+title. Inline mentions in messages also show a hover preview.</p>
+<h2 id="communication-flow">Communication flow</h2>
+<p>The message thread supports a continuous support conversation:</p>
+<ul>
+<li>A requester reports an issue</li>
+<li>Support or another responsible role replies</li>
+<li>More detail is added over time</li>
+<li>Status changes and message updates together show progress</li>
+</ul>
+<p>This makes the thread the practical heartbeat of a ticket.</p>
+<p>Public and private messages can exist in the same thread. This lets
+billetsys support normal customer-visible communication while still
+allowing group-limited follow-up when needed.</p>
+<h2 id="notifications">Notifications</h2>
+<p>Message activity can also trigger notifications so that relevant
+participants stay informed when a conversation changes. This helps
+billetsys work not only as a web application, but also as part of a
+broader support communication flow.</p>
+<p>Private message email notifications follow the same audience split as
+the thread itself:</p>
+<ul>
+<li>Private messages from <strong>Support</strong> or
+<strong>TAM</strong> are emailed only to the
+<strong>Support/TAM</strong> group</li>
+<li>Private messages from <strong>User</strong> or
+<strong>Superuser</strong> are emailed only to the
+<strong>User/Superuser</strong> group</li>
+</ul>
+<h2 id="email-integration">Email integration</h2>
+<p>Billetsys supports communication patterns where ticket conversations
+interact with email-based workflows. This helps teams continue case
+discussions while keeping the ticket history synchronized with the main
+support record.</p>
+<h2 id="reading-the-thread">Reading the thread</h2>
+<p>When a user opens a ticket, the message history helps answer key
+questions:</p>
+<ul>
+<li>What was originally reported</li>
+<li>What support has already investigated</li>
+<li>What information is still missing</li>
+<li>What files have been shared</li>
+<li>Why the ticket has its current status</li>
+</ul>
+<p>This makes message history one of the most important parts of
+understanding a case.</p>
+<p>Users only see the messages that are visible to their role group, so
+the thread view reflects the correct conversation scope for that
+reader.</p>
+<h2 id="role-perspective">Role perspective</h2>
+<p>Different roles participate in message threads in different ways.</p>
+<p>In general:</p>
+<ul>
+<li>Users use messages to report and clarify problems</li>
+<li>Support uses messages to investigate, respond, and document
+work</li>
+<li>TAMs and superusers use messages to follow and coordinate broader
+case activity</li>
+</ul>
+<p>The result is a shared conversation space that supports both customer
+communication and internal operational follow-up.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="tickets.html">Tickets</a>
+      <a class="next" href="attachments.html">Attachments</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>

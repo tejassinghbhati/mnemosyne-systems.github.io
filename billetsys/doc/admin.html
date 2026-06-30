@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — billetsys</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="doc.css" />
+  <style>
+    .doc-content img { max-width: min(100%, 760px); height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; }
+    .doc-content figure { margin: 1.5rem 0; }
+    .doc-content figcaption { font-size: 0.8rem; color: var(--text-3); margin-top: 0.5rem; }
+  </style>
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('bs-theme') || 'light');</script>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <a class="doc-nav-logo" href="../index.html">
+    <img src="logo/logo-32.png" alt="" width="20" height="20" style="vertical-align:-5px;margin-right:.45rem" />BILLETSYS
+  </a>
+  <ul class="doc-nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="introduction.html">Docs</a></li>
+    <li><a href="../releases.html">Releases</a></li>
+    <li><a href="https://mnemosyne-systems.ai/products/billetsys/" target="_blank">Support</a></li>
+  </ul>
+  <div class="doc-nav-right">
+    <a href="https://github.com/mnemosyne-systems/billetsys" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="doc-shell">
+  <aside class="doc-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Overview</div>
+      <ul>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="navigation.html">Navigation</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Roles</div>
+      <ul>
+        <li><a href="roles.html">Roles Overview</a></li>
+        <li><a href="user.html">User</a></li>
+        <li><a href="superuser.html">Superuser</a></li>
+        <li><a href="tam.html">TAM</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="admin.html" class="active">Admin</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Working with Tickets</div>
+      <ul>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="attachments.html">Attachments</a></li>
+        <li><a href="email.html">Email</a></li>
+        <li><a href="import.html">Ticket Import</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Knowledge &amp; Reporting</div>
+      <ul>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="pdf.html">PDF Export</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Administration</div>
+      <ul>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="entitlements.html">Entitlements</a></li>
+        <li><a href="levels.html">Levels</a></li>
+        <li><a href="versions.html">Versions</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Account &amp; Security</div>
+      <ul>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="password-reset.html">Password Reset</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Development</div>
+      <ul>
+        <li><a href="architecture.html">Architecture</a></li>
+        <li><a href="building.html">Building</a></li>
+      </ul>
+    </div>
+    <hr class="sidebar-divider" />
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">On this page</div>
+      <ul>
+      <li><a href="#admin" id="toc-admin">Admin</a>
+      <ul>
+      <li><a href="#main-purpose" id="toc-main-purpose">Main
+      purpose</a></li>
+      <li><a href="#administrative-scope"
+      id="toc-administrative-scope">Administrative scope</a></li>
+      <li><a href="#company-and-user-administration"
+      id="toc-company-and-user-administration">Company and user
+      administration</a></li>
+      <li><a href="#service-structure"
+      id="toc-service-structure">Service structure</a>
+      <ul>
+      <li><a href="#role-badges-and-colors"
+      id="toc-role-badges-and-colors">Role Badges and Colors</a></li>
+      </ul></li>
+      <li><a href="#oversight-and-reporting"
+      id="toc-oversight-and-reporting">Oversight and reporting</a></li>
+      <li><a href="#knowledge-and-governance"
+      id="toc-knowledge-and-governance">Knowledge and
+      governance</a></li>
+      <li><a href="#boundaries" id="toc-boundaries">Boundaries</a></li>
+      </ul></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="doc-content">
+<h1 id="admin">Admin</h1>
+<p>The <strong>Admin</strong> role is responsible for maintaining the
+application and the data structures that the rest of billetsys depends
+on.</p>
+<figure>
+<img src="images/08-admin.png" style="width:100.0%" alt="Admin home" />
+<figcaption aria-hidden="true">Admin home</figcaption>
+</figure>
+<h2 id="main-purpose">Main purpose</h2>
+<p>Admins keep the system ready for day-to-day support work. They manage
+the reference data, organizational data, and user setup that define how
+tickets can be created and handled.</p>
+<h2 id="administrative-scope">Administrative scope</h2>
+<p>The admin role covers the broadest set of management tasks in
+billetsys, including:</p>
+<ul>
+<li>Companies</li>
+<li>Users</li>
+<li>Categories</li>
+<li>Entitlements</li>
+<li>Levels</li>
+<li>Related reference data</li>
+<li>Knowledge content</li>
+</ul>
+<p>Because these data sets affect many parts of the application, admin
+work shapes how the rest of the roles experience billetsys.</p>
+<h2 id="company-and-user-administration">Company and user
+administration</h2>
+<p>Admins manage the organizational model of the system. This includes
+creating and updating companies, maintaining user accounts, and making
+sure the right people have the right role assignments.</p>
+<p>This is important because ticket visibility, responsibility, and
+coordination all depend on correct company and user data.</p>
+<h2 id="service-structure">Service structure</h2>
+<p>Admins also maintain the support structure behind the ticketing
+process. Categories, entitlement information, and levels help define how
+tickets are classified and how service expectations are represented in
+the system.</p>
+<p>Admins also maintain installation branding. The Installation entity
+stores the shared logo, optional login background image, a header clock
+format toggle (12-hour or 24-hour), and three dedicated branding colors
+for Header/Footer, Headers, and Buttons so the same branding can be
+shown consistently across the application.</p>
+<p>The branding controls are available on the Owner edit screen. Between
+the Background and Colors sections, admins can use the slider-style
+clock toggle to decide whether the header clock is shown as
+<code>2:43pm</code> or <code>14:43</code> throughout the
+application.</p>
+<h3 id="role-badges-and-colors">Role Badges and Colors</h3>
+<p>Admins can also customize the visual appearance of each user role
+across the application via the Owner edit screen. For each role (Admin,
+Support, TAM, Superuser, User, and External), admins can select a
+specific Tabler icon from a predefined dropdown and assign a distinct
+color using the color picker. These role badges appear next to user
+names in directories, hover cards, and ticket conversations to instantly
+identify a user’s role.</p>
+<h2 id="oversight-and-reporting">Oversight and reporting</h2>
+<p>The admin role has the broadest reporting perspective. Admin users
+can review the system at a global level and use that visibility to
+understand overall workload, trends, and organizational activity.</p>
+<h2 id="knowledge-and-governance">Knowledge and governance</h2>
+<p>Admins also contribute to governance and consistency. By managing
+shared structures and content, they help ensure that the platform stays
+coherent as companies, users, and tickets grow over time.</p>
+<h2 id="boundaries">Boundaries</h2>
+<p>Although admins have the broadest access, the role is still part of
+the same application model. Admin work should generally focus on
+configuration, oversight, and enablement rather than replacing the
+day-to-day workflow of support agents.</p>
+<p>The admin role is therefore best seen as the stewardship role for
+billetsys as a whole.</p>
+    <div class="doc-footer-nav">
+      <a class="prev" href="support.html">Support</a>
+      <a class="next" href="tickets.html">Tickets</a>
+    </div>
+  </main>
+</div>
+
+<footer class="doc-site-footer">
+  <span>EPL&nbsp;v2.0 · <a href="https://mnemosyne-systems.ai/" target="_blank">mnemosyne systems</a></span>
+  <span>Generated with pandoc from the <a href="https://github.com/mnemosyne-systems/billetsys/tree/main/doc/manual/en" target="_blank">billetsys manual</a></span>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    function applyTheme(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('bs-theme', t);
+      btn.querySelector('.icon-sun').style.display = t === 'dark' ? 'block' : 'none';
+      btn.querySelector('.icon-moon').style.display = t === 'light' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('bs-theme') || 'light');
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+</body>
+</html>
